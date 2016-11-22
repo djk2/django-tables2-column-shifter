@@ -1,0 +1,61 @@
+{% extends "django_tables2/bootstrap.html" %}
+{% load trans from i18n %}
+{% load static %}
+
+{% block table %}
+
+    {% if table.shift_table_column %}
+
+        <div id="{{ table.table_class_name }}" class="column-shifter-container">
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-defautl btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-th-large"></span>
+                    {% trans "Visible columns" %}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="min-width:350px; padding:5px; cursor:pointer;">
+                    {% for column in table.columns %}
+                        {% if column.attrs.td.class in table.get_column_default_show %}
+                            <li class="btn-shift-column"
+                                data-td-class="{{ column.attrs.td.class }}"
+                                data-state="on"
+                                data-table-class-container="{{ table.table_class_name }}"
+                                <span class="glyphicon glyphicon-check"></span>
+                                {{ column.header }}
+                            </li>
+                        {% else %}
+                            <li class="btn-shift-column"
+                                data-td-class="{{ column.attrs.td.class }}"
+                                data-state="off"
+                                data-table-class-container="{{ table.table_class_name }}"
+                                <span class="glyphicon glyphicon-unchecked"></span>
+                                {{ column.header }}
+                            </li>
+                        {% endif %}
+
+                        {% if not forloop.last %}
+                            <li class="divider"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div> {# End  btn-group#}
+
+            {# Loader default is show #}
+            <div class="loader" style="text-align:center;" >
+                <img src="{% static "django_tables2_column_shifter/img/loader.gif" %}" style="margin:5px auto;"/>
+                {% trans "Table content is loading..."%}
+            </div> {# End loader #}
+
+            {# Wrapper degault is hide #}
+            <div class="table-wrapper" style="display:none;">
+                {# Load default table content   #}
+                {{ block.super }}
+            </div> {# End table-wrapper #}
+
+        </div> {# End column-shifter-container #}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+
+{% endblock table %}

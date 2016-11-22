@@ -1,0 +1,6 @@
+Django>=1.10
+django-tables2
+pytest
+pytest-django
+tox
+flake8

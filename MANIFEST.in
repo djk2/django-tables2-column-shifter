@@ -1,0 +1,6 @@
+include README.rst
+include CHANGELOG.rst
+include LICENSE
+recursive-include django_tables2_column_shifter/templates *
+recursive-include django_tables2_column_shifter/static *
+recursive-include django_tables2_column_shifter/locale *

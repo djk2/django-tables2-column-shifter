@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div id="manager">
+        <div id="container">
+            {% block container %}
+
+                <div id="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+
+            {% endblock container %}
+        </div>
+    </div>
+{% endblock body %}
