@@ -1,8 +1,7 @@
-===========
 CHANGELOG
 ===========
 
-v. 0.1.dev
-==========
+v. 1.0
+-------
 
-* Create application
+* Create app

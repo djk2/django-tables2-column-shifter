@@ -30,7 +30,11 @@ class ColumnShiftTable(tables.Table):
             return self.column_default_show
 
     @property
-    def table_class_name(self):
-        """Return name of table class
-        using in template for container div id"""
-        return self.__class__.__name__
+    def uniq_table_class_name(self):
+        """Return unique name of table class
+        using in template for container div id
+        prefix in django_tables2 is always a string, can be empty or not
+        """
+        class_name = self.__class__.__name__
+        prefix = self.prefix
+        return "{pref}{cls}".format(pref=prefix, cls=class_name)

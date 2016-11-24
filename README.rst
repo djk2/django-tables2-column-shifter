@@ -3,19 +3,41 @@ django-tables2-column-shifter
 
 About the app:
 Simple extension for django-tables2 to dynamically show or hide columns using jQuery.
-Using JQuery, Bootstrap3 and Django >=1.9.
 Application uses web storage to store information whih columns are visible or not.
+Using JQuery, Bootstrap3 and Django >=1.9.
 
-- Tested with:
-  * Python :2.7, 3.4
-  * Django : 1.9, 1.10
-  * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6
+- Tested by tox with:
+
+    * Python :2.7, 3.4
+    * Django : 1.9, 1.10
+    * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6
 
 - Require:
-  * Django 1.9 or 1.10
-  * django-tables2 >= 1.1.0 (earlier versions propably will work but not tested)
-  * **bootstrap3**
-  * **JQuery**
+
+    * Django 1.9 or Django 1.10
+    * django-tables2 >= 1.1.0 (earlier versions propably will work but not tested)
+    * **bootstrap3**
+    * **JQuery**
+
+- Supported locale:
+
+    * EN - (english)
+    * PL - (polish)
+
+
+
+More informaton about django-tables in here: https://django-tables2.readthedocs.io/
+
+
+Screens:
+----------
+
+.. image:: doc/static/scr1.png
+    :alt: screen 1
+
+.. image:: doc/static/scr2.png
+    :alt: screen 2
+
 
 How Install:
 -------------
@@ -101,20 +123,35 @@ Usage:
         {% load django_tables2 %}
         {% render_table table %}
 
-**Warning** : - If you use {% render_table %} tag with queryset, not table class instance, django-tables2-column-shifter will not be work because queryset has no attribute ``template``
 
-**Warning** : - If you use a different template than ``django_tables2_column_shifter/table.html`` to render your table, propably django-tables2-column-shifter will not be work. Your custom template should inherit from ``django_tables2_column_shifter/table.html``
+Warnings:
+----------
 
-Options:
---------
-1. To disable shifter mechanism change flag shift_table_column in your table class (disable is True)::
+- **Warning** : - If you use {% render_table %} tag with queryset, not table class instance, django-tables2-column-shifter will not be work because queryset has no attribute ``template``::
+
+        {% load django_tables2 %}
+        {% render_table queryset %} {# not work #}
+
+
+- **Warning** : - If you use a different template than ``django_tables2_column_shifter/table.html`` to render your table, propably django-tables2-column-shifter will not be work. Your custom template should inherit from ``django_tables2_column_shifter/table.html``
+
+
+Customizing:
+-------------
+1. If you use more then one instance of the same Table class in your view/template, you should use a different prefix for each instance::
+
+        tab1 = MyModelTable(queryset, prefix='tab1')
+        tab2 = MyModelTable(queryset, prefix='tab2')
+        tab3 = MyModelTable(queryset, prefix='tab3')
+
+2. To disable shifter mechanism - set ``False`` to ``shift_table_column`` in your table class (default value is True)::
 
         class MyModelTable(ColumnShiftTable):
             shift_table_column = False
             ...
 
 
-2. Default, all columns from sequence are visible, if you want to limit the visible columns override method ``get_column_default_show(self)`` like that::
+3. Default, all columns from sequence are visible, if you want to limit the visible columns, override method ``get_column_default_show(self)`` like that::
 
         class MyModelTable(ColumnShiftTable):
             def get_column_default_show(self):
@@ -122,5 +159,27 @@ Options:
                 return super(MyModelTable, self).get_column_default_show()
 
 
+Run demo:
+---------
+1. Download or clone project from `https://github.com/djk2/django-tables2-column-shifter`::
+
+        git clone https://github.com/djk2/django-tables2-column-shifter.git
+
+2. Go to testproject directory::
+
+        cd django-tables2-column-shifter/testproject
+
+3. Install requirements::
+
+        pip install -r requirements.txt
+
+4. Run django developing server::
+
+        python manage.py runserver
 
 
+
+Links:
+--------
+- `Django documentation <https://docs.djangoproject.com/en/dev/>`_
+- `django-tables2 documentation <https://django-tables2.readthedocs.io/en/latest/>`_

@@ -25,21 +25,28 @@ class DjangoTables2ColumnShifterTest(TestCase):
 
     def test_general_html_content(self):
         response = self.client.get('/')
-        self.assertContains(response, "Authors")
+        self.assertContains(response, "Authors - table 1:")
+        self.assertContains(response, "Authors - table 2:")
         self.assertContains(response, "Books - table")
         self.assertContains(response, "Books - queryset")
 
+    def test_container_ids(self):
+        response = self.client.get('/')
+        self.assertContains(response, "AuthorTable")
+        self.assertContains(response, "authors2AuthorTable")
+        self.assertContains(response, "booksBookTable")
+
     def test_tables_containers_count(self):
         response = self.client.get('/')
-        self.assertContains(response, "column-shifter-container", count=2)
+        self.assertContains(response, "column-shifter-container", count=3)
 
     def test_buttons_count(self):
         response = self.client.get('/')
-        self.assertContains(response, "btn-shift-column", count=9)
+        self.assertContains(response, "btn-shift-column", count=13)
 
     def test_btn_on_status_count(self):
         response = self.client.get('/')
-        self.assertContains(response, 'data-state="on"', count=7)
+        self.assertContains(response, 'data-state="on"', count=11)
 
     def test_btn_off_status_count(self):
         response = self.client.get('/')
@@ -47,12 +54,17 @@ class DjangoTables2ColumnShifterTest(TestCase):
 
     def test_is_pagination(self):
         response = self.client.get('/')
-        self.assertContains(response, "authorspage")
+        self.assertContains(response, "?page=2")
+        self.assertContains(response, "authors2page")
 
     def test_tables_template(self):
         response = self.client.get('/')
         template_name = "django_tables2_column_shifter/table.html"
-        assert response.context['author_table'].template is not None
-        assert response.context['author_table'].template == template_name
+        assert response.context['author_table1'].template is not None
+        assert response.context['author_table1'].template == template_name
+
+        assert response.context['author_table2'].template is not None
+        assert response.context['author_table2'].template == template_name
+
         assert response.context['book_table'].template is not None
         assert response.context['book_table'].template == template_name
