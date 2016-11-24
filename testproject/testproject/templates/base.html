@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="{{ LANGUAGE_CODE|default:"en" }}">
+    <head>
+        <title>Testproject</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Testproject for django-tables2-column-shifter">
+        <meta name="author" content="Grzegorz Tężycki">
+
+        {# CSS for bootstrap #}
+        <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css"/>
+
+        {% block extra_head %}{% endblock extra_head %}
+    </head>
+
+    <body>
+        {% block body %}
+        {% endblock body %}
+
+        {% block body_ekstra %}
+            <script src="{% static "jquery/jquery3.min.js" %}"></script>
+            <script src="{% static "bootstrap3/js/bootstrap.min.js" %}"></script>
+
+            {# !! --> JS for column_shifter #}
+            <script type="text/javascript"
+                    src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
+            </script>
+
+        {% endblock body_ekstra %}
+    </body>
+</html>
+
