@@ -5,3 +5,6 @@
 .tox/*
 .cache/*
 __pycache__/*
+build/
+dist/
+
