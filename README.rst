@@ -1,6 +1,21 @@
 django-tables2-column-shifter
 ------------------------------
 
+.. image:: https://badge.fury.io/py/django-tables2-column-shifter.svg
+    :target: https://badge.fury.io/py/django-tables2-column-shifter
+    :alt: Latest PyPI version
+
+
+.. image:: https://travis-ci.org/djk2/django-tables2-column-shifter.svg?branch=master
+    :target: https://travis-ci.org/djk2/django-tables2-column-shifter
+    :alt: Travis CI
+
+
+.. image:: https://requires.io/github/djk2/django-tables2-column-shifter/requirements.svg?branch=master
+    :target: https://requires.io/github/djk2/django-tables2-column-shifter/requirements/?branch=master
+    :alt: Requirements Status
+
+
 About the app:
 Simple extension for django-tables2 to dynamically show or hide columns using jQuery.
 Application uses web storage to store information whih columns are visible or not.
@@ -32,10 +47,10 @@ More informaton about django-tables in here: https://django-tables2.readthedocs.
 Screens:
 ----------
 
-.. image:: doc/static/scr1.png
+.. image:: https://raw.githubusercontent.com/djk2/django-tables2-column-shifter/master/doc/static/scr1.png
     :alt: screen 1
 
-.. image:: doc/static/scr2.png
+.. image:: https://raw.githubusercontent.com/djk2/django-tables2-column-shifter/master/doc/static/scr2.png
     :alt: screen 2
 
 

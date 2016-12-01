@@ -21,7 +21,7 @@ setup(
         'templates/django_tables2_column_shifter/*',
         'static/column_shifter/*'
     ]},
-    tests_require=['pytest', 'pytest-django', 'Django', 'django-tables2'],
+    tests_require=['Django', 'django-tables2'],
     include_package_data=True,
     zip_safe=False,
     install_requires=['Django>=1.9', 'django-tables2>=1.1.0'],
