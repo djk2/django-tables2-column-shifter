@@ -1,0 +1,53 @@
+sudo: false
+language: python
+env:
+    - TOXENV=py27-dj1.9-dt1.1.0
+    - TOXENV=py27-dj1.9-dt1.1.1
+    - TOXENV=py27-dj1.9-dt1.1.2
+    - TOXENV=py27-dj1.9-dt1.1.4
+    - TOXENV=py27-dj1.9-dt1.1.7
+    - TOXENV=py27-dj1.9-dt1.1.8
+    - TOXENV=py27-dj1.9-dt1.2.0
+    - TOXENV=py27-dj1.9-dt1.2.1
+    - TOXENV=py27-dj1.9-dt1.2.2
+    - TOXENV=py27-dj1.9-dt1.2.3
+    - TOXENV=py27-dj1.9-dt1.2.6
+    - TOXENV=py34-dj1.9-dt1.1.0
+    - TOXENV=py34-dj1.9-dt1.1.1
+    - TOXENV=py34-dj1.9-dt1.1.2
+    - TOXENV=py34-dj1.9-dt1.1.4
+    - TOXENV=py34-dj1.9-dt1.1.7
+    - TOXENV=py34-dj1.9-dt1.1.8
+    - TOXENV=py34-dj1.9-dt1.2.0
+    - TOXENV=py34-dj1.9-dt1.2.1
+    - TOXENV=py34-dj1.9-dt1.2.2
+    - TOXENV=py34-dj1.9-dt1.2.3
+    - TOXENV=py34-dj1.9-dt1.2.6
+    - TOXENV=py27-dj1.10-dt1.1.0
+    - TOXENV=py27-dj1.10-dt1.1.1
+    - TOXENV=py27-dj1.10-dt1.1.2
+    - TOXENV=py27-dj1.10-dt1.1.4
+    - TOXENV=py27-dj1.10-dt1.1.7
+    - TOXENV=py27-dj1.10-dt1.1.8
+    - TOXENV=py27-dj1.10-dt1.2.0
+    - TOXENV=py27-dj1.10-dt1.2.1
+    - TOXENV=py27-dj1.10-dt1.2.2
+    - TOXENV=py27-dj1.10-dt1.2.3
+    - TOXENV=py27-dj1.10-dt1.2.6
+    - TOXENV=py34-dj1.10-dt1.1.0
+    - TOXENV=py34-dj1.10-dt1.1.1
+    - TOXENV=py34-dj1.10-dt1.1.2
+    - TOXENV=py34-dj1.10-dt1.1.4
+    - TOXENV=py34-dj1.10-dt1.1.7
+    - TOXENV=py34-dj1.10-dt1.1.8
+    - TOXENV=py34-dj1.10-dt1.2.0
+    - TOXENV=py34-dj1.10-dt1.2.1
+    - TOXENV=py34-dj1.10-dt1.2.2
+    - TOXENV=py34-dj1.10-dt1.2.3
+    - TOXENV=py34-dj1.10-dt1.2.6
+
+install:
+  - pip install tox>=2.5.0
+script:
+  - python runtests.py
+
