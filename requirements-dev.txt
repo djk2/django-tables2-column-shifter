@@ -4,3 +4,4 @@ pytest
 pytest-django
 tox
 flake8
+tox>=2.5.0
