@@ -43,7 +43,6 @@ How Install:
 -------------
 1. Install django-tables2-column-shifter using::
 
-    **SORY : package not yet in pypi repository**
 
         pip install django-tables2-column-shifter
 

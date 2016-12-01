@@ -9,7 +9,7 @@ def readme():
 
 setup(
     name='django-tables2-column-shifter',
-    version= '1.0',
+    version= '0.1',
     description='Extension for django_tables2 can dynamically show or hide columns',
     url='https://github.com/djk2/django-tables2-column-shifter',
     author='Grzegorz Tężycki',
@@ -37,4 +37,5 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Topic :: Utilities',
     ],
+    keywords='django_tables2 django columns',
 )
