@@ -1,6 +1,7 @@
 django-tables2-column-shifter
 ------------------------------
 
+
 .. image:: https://badge.fury.io/py/django-tables2-column-shifter.svg
     :target: https://badge.fury.io/py/django-tables2-column-shifter
     :alt: Latest PyPI version
@@ -25,7 +26,7 @@ Using JQuery, Bootstrap3 and Django >=1.9.
 
     * Python :2.7, 3.4
     * Django : 1.9, 1.10
-    * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6
+    * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6, 1.2.7
 
 - Require:
 
@@ -88,6 +89,7 @@ How Install:
     base.html
 
         {% load static %}
+
         <body>
             ...
             ...
