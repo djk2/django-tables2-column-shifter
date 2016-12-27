@@ -45,7 +45,7 @@ env:
     - TOXENV=py34-dj1.10-dt1.2.2-tests
     - TOXENV=py34-dj1.10-dt1.2.3-tests
     - TOXENV=py34-dj1.10-dt1.2.6-tests
-    - TOXENV=py34-dj1.10-dt1.2.7-tests
+    - TOXENV=py34-dj1.10-dt1.2.9-tests
     - TOXENV=py27-flake
     - TOXENV=py34-flake
 
@@ -53,4 +53,3 @@ install:
   - pip install tox>=2.5.0
 script:
   - tox
-
