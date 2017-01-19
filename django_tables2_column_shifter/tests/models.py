@@ -16,4 +16,4 @@ class Book(models.Model):
     pages = models.IntegerField("Count pages")
 
     # FK
-    author = models.ForeignKey(Author, verbose_name='Author', null=True, blank=True)
+    author = models.ForeignKey(Author, verbose_name='Author', null=True, blank=True, on_delete=models.CASCADE)

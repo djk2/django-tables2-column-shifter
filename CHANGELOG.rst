@@ -1,7 +1,13 @@
 CHANGELOG
 ===========
 
+v. 0.2.2
+--------
+
+    * Tests + support for Django 1.11 and 2.0
+
 v. 0.2.1
+--------
 
     * Upgrade django_tables2 to 1.2.9 + tests
 
