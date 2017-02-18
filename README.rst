@@ -26,7 +26,7 @@ Using JQuery, Bootstrap3 and Django >=1.9.
 
     * Python :2.7, 3.4
     * Django : 1.9, 1.10, 1.11, 2.0-dev
-    * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6, 1.3.0, master
+    * django-tables2 : 1.1.8, 1.2.6, 1.3.0, master
 
 - Require:
 
@@ -192,7 +192,6 @@ Run demo:
 4. Run django developing server::
 
         python manage.py runserver
-
 
 
 Links:

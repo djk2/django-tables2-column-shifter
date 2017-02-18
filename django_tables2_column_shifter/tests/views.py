@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django_tables2.config import RequestConfig
+
 from .models import Author, Book
 from .tables import AuthorTable, BookTable
 

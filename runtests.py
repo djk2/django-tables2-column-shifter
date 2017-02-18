@@ -8,7 +8,6 @@ import django
 from django.conf import settings
 from django.test.utils import get_runner
 
-
 if __name__ == "__main__":
     '''
     Testy projektu, przechodzimy po katalogu 'moduly' i dla

@@ -1,5 +1,6 @@
 # encoding: utf-8
-from django.test import TestCase, Client
+from django.test import Client, TestCase
+
 from django_tables2_column_shifter.tests.models import Author
 
 
