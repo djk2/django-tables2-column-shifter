@@ -1,5 +1,6 @@
 # encoding:utf-8
 from setuptools import find_packages, setup
+
 from django_tables2_column_shifter import __version__
 
 
@@ -18,10 +19,6 @@ setup(
     long_description=readme(),
     license='BSD',
     packages=find_packages(exclude=['testproject', 'docs']),
-    package_data={'django_tables2_column_shifter': [
-        'templates/django_tables2_column_shifter/*',
-        'static/column_shifter/*'
-    ]},
     tests_require=['Django', 'django-tables2'],
     include_package_data=True,
     zip_safe=False,
