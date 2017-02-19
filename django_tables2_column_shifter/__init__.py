@@ -1,5 +1,2 @@
-# coding: utf-8
-from .tables import ColumnShiftTable
-
-
-__version__ = "0.2.2"
+VERSION = (0, 3, 0)
+__version__ = ".".join(str(i) for i in VERSION)

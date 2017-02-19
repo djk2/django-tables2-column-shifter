@@ -8,9 +8,18 @@
         <meta name="author" content="Grzegorz Tężycki">
 
         {# CSS for bootstrap #}
-        <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css"/>
+        {% block bootstrap_css %}
+            <link rel="stylesheet" href="{% static "bootstrap3/css/bootstrap.min.css" %}"/>
+        {% endblock %}
 
         {% block extra_head %}{% endblock extra_head %}
+
+        <style>
+            body {
+                width : 90%;
+                margin: 0 auto;
+            }
+        </style>
     </head>
 
     <body>
@@ -19,14 +28,17 @@
 
         {% block body_ekstra %}
             <script src="{% static "jquery/jquery3.min.js" %}"></script>
-            <script src="{% static "bootstrap3/js/bootstrap.min.js" %}"></script>
+
+            {# Javascripts for bootstrap #}
+            {% block bootstrap_js %}
+            {% endblock %}
 
             {# !! --> JS for column_shifter #}
-            <script type="text/javascript"
-                    src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
+            <script
+                type="text/javascript"
+                src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
             </script>
 
         {% endblock body_ekstra %}
     </body>
 </html>
-

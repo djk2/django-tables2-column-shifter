@@ -1,10 +1,23 @@
 CHANGELOG
 ===========
 
+v. 0.3.0
+--------
+    * Remove ColumnShiftTable from __init__.py,
+      Now you must import ColumnShiftTable not from django_tables2_column_shifter but
+      django_tables2_column_shifter.tables
+
+    * Support for bootstrap4
+    * Reorganize templates for ColumnShiftTable
+    * Add bootstrap4 support to testproject.
+    * Less environments in tox- tests only for last minor django-tables2 versions
+    * Replace glyphicons via inside images from static.
+    * Sort imports by isort.
+
 v. 0.2.2
 --------
 
-    * Tests + support for Django 1.11 and 2.0
+    * Tests + support for Django 1.11, Django 2.0
 
 v. 0.2.1
 --------

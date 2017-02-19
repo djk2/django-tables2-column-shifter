@@ -1,0 +1,36 @@
+{% extends "base_site.html" %}
+{% load django_tables2 %}
+
+{% block content %}
+
+    <h1> Authors - table 1: </h1>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {% render_table author_table1 %}
+        </div>
+    </div>
+
+    <h1> Authors - table 2: </h1>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {% render_table author_table2 %}
+        </div>
+    </div>
+
+    <h1> Books - table: </h1>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {% render_table book_table %}
+        </div>
+    </div>
+
+    {# This is not working correctly because object of Table class is not exist #}
+    {# when render_table tag is called with queryset and not the object of class Table then will be used default template #}
+    <h1> Books - queryset: </h1>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {% render_table book_queryset %}
+        </div>
+    </div>
+
+{% endblock %}

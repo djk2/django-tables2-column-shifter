@@ -10,7 +10,7 @@ class ColumnShiftTable(tables.Table):
     column_default_show = None
 
     # Shifter template for tabel inherit from django_table2/bootstrap.html
-    shifter_template = "django_tables2_column_shifter/table.html"
+    shifter_template = "django_tables2_column_shifter/bootstrap3.html"
 
     def __init__(self, *args, **kwargs):
         """Override init for set shifter template"""

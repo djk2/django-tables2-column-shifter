@@ -1,0 +1,10 @@
+{% extends "testproject/test_base.html" %}
+{% load static %}
+
+{% block bootstrap_css %}
+    <link rel="stylesheet" href="{% static "bootstrap4/css/bootstrap.min.css" %}"/>
+{% endblock %}
+
+{% block bootstrap_js %}
+    <script src="{% static "bootstrap4/js/bootstrap.min.js" %}"></script>
+{% endblock %}

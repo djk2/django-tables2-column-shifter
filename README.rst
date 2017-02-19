@@ -20,19 +20,19 @@ django-tables2-column-shifter
 About the app:
 Simple extension for django-tables2 to dynamically show or hide columns using jQuery.
 Application uses web storage to store information whih columns are visible or not.
-Using JQuery, Bootstrap3 and Django >=1.9.
+Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Tested by tox with:
 
     * Python :2.7, 3.4
     * Django : 1.9, 1.10, 1.11, 2.0-dev
-    * django-tables2 : 1.1.0, 1.1.1, 1.1.2, 1.1.4, 1.1.7, 1.1.8, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.6, 1.3.0, master
+    * django-tables2 : 1.1.8, 1.2.6, 1.3.0, master
 
 - Require:
 
-    * Django 1.9 or Django 1.10
-    * django-tables2 >= 1.1.0 (earlier versions propably will work but not tested)
-    * **bootstrap3**
+    * Django >= 1.9
+    * django-tables2 >= 1.1.0 (earlier version probably will be work but wasn't tested)
+    * **bootstrap3** or **bootstrap4**
     * **JQuery**
 
 - Supported locale:
@@ -42,7 +42,7 @@ Using JQuery, Bootstrap3 and Django >=1.9.
 
 
 
-More informaton about django-tables in here: https://django-tables2.readthedocs.io/
+More information about django-tables in here: https://django-tables2.readthedocs.io/
 
 
 Screens:
@@ -84,7 +84,8 @@ How Install:
             ...,
         ]
 
-3. Add path to js script: ``django_tables2_column_shifter.min.js`` to your base django template. Script must be add after jquery.js and should be add befor end body tag ::
+3. Add path to js script: ``django_tables2_column_shifter.min.js`` in your base django template.
+   Script must be add after jquery.js and before </body> tag ::
 
     base.html
 
@@ -94,17 +95,18 @@ How Install:
             ...
             ...
             <script src="{% static "jquery.min.js" %}"></script> {# require #}
-            <script type="text/javascript"
-                    src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
+            <script
+                type="text/javascript"
+                src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
             </script>
         </body>
 
 
 Usage:
 ------
-1. To use app, you only must inherit yout table class from django_tables2_column_shifter.ColumnShiftTable::
+1. To use app, you must inherit your table class from ``django_tables2_column_shifter.tables.ColumnShiftTable``::
 
-    models.py - create normal model like in django_tables2
+   models.py - create normal model
 
         from django.db import models
 
@@ -112,18 +114,18 @@ Usage:
             first_name = models.CharField("First name", max_length=50)
             last_name = models.CharField("Last name", max_length=50)
 
-    tables.py - change inherit on ColumnShiftTable
+   tables.py - change inherit to ColumnShiftTable
 
-        from django_tables2_column_shifter import ColumnShiftTable
+        from django_tables2_column_shifter.tables import ColumnShiftTable
         from app.models import MyModel
 
-        # Default you inherit from django_table2.Table
+        # By default you probably inherit from django_table2.Table
         # Change inherit to ColumnShiftTable
         class MyModelTable(ColumnShiftTable):
             class Meta:
                 model = MyModel
 
-    views.py - In your view, nothing changes
+   views.py - In your view, nothing changes
 
         from .tables import MyModelTable
         from .models import MyModel
@@ -133,7 +135,7 @@ Usage:
             table = MyModelTable(queryset)
             return render(request, 'template.html', {'table': table})
 
-    template.html - use default render_table tag to display table object (using bootstrap3)
+   template.html - use default render_table tag to display table object (using bootstrap3 / bootstrap4)
 
         {% extends "base.html" %}
         {% load django_tables2 %}
@@ -143,18 +145,21 @@ Usage:
 Warnings:
 ----------
 
-- **Warning** : - If you use {% render_table %} tag with queryset, not table class instance, django-tables2-column-shifter will not be work because queryset has no attribute ``template``::
+- **Warning** : - If you use {% render_table %} tag with queryset (not table class instance),
+  django-tables2-column-shifter will not be work. Queryset does not have ``template`` attribute::
 
         {% load django_tables2 %}
         {% render_table queryset %} {# not work #}
 
 
-- **Warning** : - If you use a different template than ``django_tables2_column_shifter/table.html`` to render your table, propably django-tables2-column-shifter will not be work. Your custom template should inherit from ``django_tables2_column_shifter/table.html``
+- **Warning** : - If you use a different template than ``django_tables2_column_shifter/table.html``
+  to render your table, probably django-tables2-column-shifter will not be work.
+  Your custom template should inherit from ``django_tables2_column_shifter/bootstrap3.html``
 
 
 Customizing:
 -------------
-1. If you use more then one instance of the same Table class in your view/template, you should use a different prefix for each instance::
+1. If you use more then one instance of the same Table class, you should use a different prefix for each instance::
 
         tab1 = MyModelTable(queryset, prefix='tab1')
         tab2 = MyModelTable(queryset, prefix='tab2')
@@ -167,7 +172,8 @@ Customizing:
             ...
 
 
-3. Default, all columns from sequence are visible, if you want to limit the visible columns, override method ``get_column_default_show(self)`` like that::
+3. By default, all columns from sequence are visible, if you want limit visible columns,
+   override method ``get_column_default_show(self)`` like that::
 
         class MyModelTable(ColumnShiftTable):
             def get_column_default_show(self):
@@ -192,7 +198,6 @@ Run demo:
 4. Run django developing server::
 
         python manage.py runserver
-
 
 
 Links:
