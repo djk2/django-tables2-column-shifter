@@ -2,187 +2,89 @@ sudo: false
 language: python
 
 matrix:
-  include:
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.0-tests
+    include:
+        - python: 3.4
+          env: py34-djmaster-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.1-tests
+        - python: 2.7
+          env: py27-dj1.9-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.2-tests
+        - python: 2.7
+          env: py27-dj1.10-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.4-tests
+        - python: 2.7
+          env: py27-dj1.11-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.7-tests
+        - python: 3.4
+          env: py34-dj1.9-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.1.8-tests
+        - python: 3.4
+          env: py34-dj1.10-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.0-tests
+        - python: 3.4
+          env: py34-dj1.11-dtmaster-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.1-tests
+        - python: 2.7
+          env: py27-dj1.9-dt1.1-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.2-tests
+        - python: 2.7
+          env: py27-dj1.9-dt1.2-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.3-tests
+        - python: 2.7
+          env: py27-dj1.9-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.6-tests
+        - python: 2.7
+          env: py27-dj1.10-dt1.1-tests
 
-    - python: 2.7
-      env: py27-dj1.9-dt1.2.9-tests
+        - python: 2.7
+          env: py27-dj1.10-dt1.2-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.0-tests
+        - python: 2.7
+          env: py27-dj1.10-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.1-tests
+        - python: 3.4
+          env: py34-dj1.9-dt1.1-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.2-tests
+        - python: 3.4
+          env: py34-dj1.9-dt1.2-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.4-tests
+        - python: 3.4
+          env: py34-dj1.9-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.7-tests
+        - python: 3.4
+          env: py34-dj1.10-dt1.1-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.1.8-tests
+        - python: 3.4
+          env: py34-dj1.10-dt1.2-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.0-tests
+        - python: 3.4
+          env: py34-dj1.10-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.1-tests
+        - python: 2.7
+          env: py27-dj1.11-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.2-tests
+        - python: 3.4
+          env: py34-dj1.11-dt1.3-tests
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.3-tests
+        - python: 2.7
+          env: py27-flake
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.6-tests
+        - python: 3.4
+          env: py34-flake
 
-    - python: 2.7
-      env: py27-dj1.10-dt1.2.9-tests
+        - python: 3.4
+          env: py34-isort
 
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.0-tests
+    allow_failures:
+        - env: py34-djmaster-dt1.3-tests
+        - env: py27-dj1.9-dtmaster-tests
+        - env: py27-dj1.10-dtmaster-tests
+        - env: py27-dj1.11-dtmaster-tests
+        - env: py34-dj1.9-dtmaster-tests
+        - env: py34-dj1.10-dtmaster-tests
+        - env: py34-dj1.11-dtmaster-tests
 
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.1-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.2-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.4-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.7-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.1.8-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.0-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.1-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.2-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.3-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.6-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dt1.2.9-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.0-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.1-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.2-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.4-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.7-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.1.8-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.0-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.1-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.2-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.3-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.6-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dt1.2.9-tests
-
-    - python: 3.4
-      env: py34-djmaster-dt1.2.9-tests
-
-    - python: 2.7
-      env: py27-dj1.9-dtmaster-tests
-
-    - python: 2.7
-      env: py27-dj1.10-dtmaster-tests
-
-    - python: 2.7
-      env: py27-dj1.11-dtmaster-tests
-
-    - python: 3.4
-      env: py34-dj1.9-dtmaster-tests
-
-    - python: 3.4
-      env: py34-dj1.10-dtmaster-tests
-
-    - python: 3.4
-      env: py34-dj1.11-dtmaster-tests
-
-    - python: 2.7
-      env: py27-flake
-
-    - python: 3.4
-      env: py34-flake
-
-  allow_failures:
-      - env: py34-djmaster-dt1.2.9-tests
-      - env: py27-dj1.9-dtmaster-tests
-      - env: py27-dj1.10-dtmaster-tests
-      - env: py27-dj1.11-dtmaster-tests
-      - env: py34-dj1.9-dtmaster-tests
-      - env: py34-dj1.10-dtmaster-tests
-      - env: py34-dj1.11-dtmaster-tests
 install:
-  - pip install tox>=2.5.0
+    - pip install tox>=2.5.0
 script:
-  - tox
+    - tox
