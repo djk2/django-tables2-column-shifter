@@ -1,11 +1,13 @@
+from django_tables2_column_shifter.tables import ColumnShiftTable
+
 from .models import Author, Book
-from django_tables2_column_shifter import ColumnShiftTable
 
 
 class AuthorTable(ColumnShiftTable):
 
     class Meta:
         model = Author
+        attrs = {'class': 'table table-bordered table-striped table-condensed'}
 
 
 class BookTable(ColumnShiftTable):
@@ -14,3 +16,4 @@ class BookTable(ColumnShiftTable):
 
     class Meta:
         model = Book
+        attrs = {'class': 'table table-bordered table-striped table-condensed'}

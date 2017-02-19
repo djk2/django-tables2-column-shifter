@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django_tables2.config import RequestConfig
+
 from .models import Author, Book
 from .tables import AuthorTable, BookTable
 
@@ -7,8 +8,11 @@ from .tables import AuthorTable, BookTable
 class Index(TemplateView):
     template_name = "testproject/index.html"
 
+
+class Base(object):
+
     def get_context_data(self, **kwargs):
-        context = super(Index, self).get_context_data(**kwargs)
+        context = super(Base, self).get_context_data(**kwargs)
 
         # Build tabels
         author_queryset = Author.objects.all()
@@ -28,3 +32,11 @@ class Index(TemplateView):
         context['book_table'] = book_table
         context['book_queryset'] = book_queryset
         return context
+
+
+class Bootstrap3(Base, TemplateView):
+    template_name = "testproject/test_bootstrap3.html"
+
+
+class Bootstrap4(Base, TemplateView):
+    template_name = "testproject/test_bootstrap4.html"
