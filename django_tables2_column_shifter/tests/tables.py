@@ -1,4 +1,4 @@
-from django_tables2_column_shifter import ColumnShiftTable
+from django_tables2_column_shifter.tables import ColumnShiftTable
 
 from .models import Author, Book
 

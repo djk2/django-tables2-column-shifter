@@ -1,4 +1,7 @@
 # encoding: utf-8
+from os import path
+
+from django.contrib.staticfiles import finders
 from django.test import Client, TestCase
 
 from django_tables2_column_shifter.tests.models import Author
@@ -16,9 +19,6 @@ class DjangoTables2ColumnShifterTest(TestCase):
         # Create http client
         if not hasattr(self, 'client'):
             self.client = Client()
-
-    def test_fake(self):
-        self.assertTrue(1 == 1)
 
     def test_status(self):
         response = self.client.get('/')
@@ -60,7 +60,7 @@ class DjangoTables2ColumnShifterTest(TestCase):
 
     def test_tables_template(self):
         response = self.client.get('/')
-        template_name = "django_tables2_column_shifter/table.html"
+        template_name = "django_tables2_column_shifter/bootstrap3.html"
         assert response.context['author_table1'].template is not None
         assert response.context['author_table1'].template == template_name
 
@@ -69,3 +69,19 @@ class DjangoTables2ColumnShifterTest(TestCase):
 
         assert response.context['book_table'].template is not None
         assert response.context['book_table'].template == template_name
+
+    def test_static_files(self):
+        prefix = "django_tables2_column_shifter"
+        statics = [
+            'js/django_tables2_column_shifter.min.js',
+            'img/check.png',
+            'img/uncheck.png',
+            'img/cols.png',
+            'img/loader.gif',
+        ]
+
+        for static in statics:
+            static_path = path.join(prefix, static)
+            abs_path = finders.find(static_path)
+            assert abs_path is not None
+            assert path.exists(abs_path) is True
