@@ -1,7 +1,7 @@
 # encoding:utf-8
 from setuptools import find_packages, setup
 
-from django_tables2_column_shifter import __version__
+from django_tables2_column_shifter import __version__ as version
 
 
 def readme():
@@ -11,7 +11,7 @@ def readme():
 
 setup(
     name='django-tables2-column-shifter',
-    version=__version__,
+    version=version,
     description='Extension for django_tables2 can dynamically show or hide columns',
     url='https://github.com/djk2/django-tables2-column-shifter',
     author='Grzegorz Tężycki',
