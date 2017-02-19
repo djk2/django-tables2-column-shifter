@@ -142,22 +142,21 @@ $(document).ready(function(){
         }
     };
 
-    // Set css icon class compatible with button state
-    var set_icon_for_state = function( $icon, state ) {
+    // Set icon imgae visibility for button state
+    var set_icon_for_state = function( $btn, state ) {
         if (state === "on") {
-            $icon.removeClass("glyphicon-unchecked");
-            $icon.addClass("glyphicon-check");
+            $btn.find("img.uncheck").hide();
+            $btn.find("img.check").show();
         } else {
-            $icon.removeClass("glyphicon-check");
-            $icon.addClass("glyphicon-unchecked");
+            $btn.find("img.check").hide();
+            $btn.find("img.uncheck").show();
         }
     };
 
     // Set state for single button
     var set_btn_state = function($btn, state){
         $btn.data('state', state);
-        var $icon = $btn.find("span.glyphicon");
-        set_icon_for_state($icon, state);
+        set_icon_for_state($btn, state);
     }
 
     // Change state for single button
