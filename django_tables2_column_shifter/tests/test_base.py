@@ -3,7 +3,6 @@ from os import path
 
 from django.contrib.staticfiles import finders
 from django.test import Client, TestCase
-
 from django_tables2_column_shifter.tests.models import Author
 
 
