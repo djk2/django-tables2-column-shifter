@@ -1,6 +1,13 @@
 CHANGELOG
 ===========
 
+v. 0.3.1
+---------
+    * Support for django-tables2 v1.5 and v1.6
+    * Update requirements
+    * PEP8
+
+
 v. 0.3.0
 --------
     * Remove ColumnShiftTable from __init__.py,
