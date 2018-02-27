@@ -24,21 +24,21 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Tested by tox with:
 
-    * Python :2.7, 3.4
-    * Django : 1.9, 1.10, 1.11, 2.0-dev
-    * django-tables2 : 1.1.8, 1.2.6, 1.3.0, 1.4, 1.5, 1.6.1, master
+    * Python :2.7, 3.6
+    * Django : 1.9, 1.10, 1.11, 2.0
+    * django-tables2 : 1.5, 1.6, ..., 1.19, master
 
 - Require:
 
     * Django >= 1.9
-    * django-tables2 >= 1.1.0 (earlier version probably will be work but wasn't tested)
+    * django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
     * **bootstrap3** or **bootstrap4**
     * **JQuery**
 
 - Supported locale:
 
-    * EN - (english)
-    * PL - (polish)
+    * EN - (English)
+    * PL - (Polish)
 
 
 

@@ -1,8 +1,10 @@
 # encoding: utf-8
 from os import path
 
+import django_tables2 as tables
 from django.contrib.staticfiles import finders
 from django.test import Client, TestCase
+
 from django_tables2_column_shifter.tests.models import Author
 
 
@@ -60,14 +62,20 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_tables_template(self):
         response = self.client.get('/')
         template_name = "django_tables2_column_shifter/bootstrap3.html"
-        assert response.context['author_table1'].template is not None
-        assert response.context['author_table1'].template == template_name
 
-        assert response.context['author_table2'].template is not None
-        assert response.context['author_table2'].template == template_name
+        # In django_table2 v1.18 was renamed Table.Meta.template to template_name
+        version = tuple(map(int, tables.__version__.split(".")))
+        if version < (1, 18):
+            template_attr_name = 'template'
+        else:
+            template_attr_name = 'template_name'
 
-        assert response.context['book_table'].template is not None
-        assert response.context['book_table'].template == template_name
+        assert getattr(response.context['author_table1'], template_attr_name) is not None
+        assert getattr(response.context['author_table1'], template_attr_name) == template_name
+        assert getattr(response.context['author_table2'], template_attr_name) is not None
+        assert getattr(response.context['author_table2'], template_attr_name) == template_name
+        assert getattr(response.context['book_table'], template_attr_name) is not None
+        assert getattr(response.context['book_table'], template_attr_name) == template_name
 
     def test_static_files(self):
         prefix = "django_tables2_column_shifter"

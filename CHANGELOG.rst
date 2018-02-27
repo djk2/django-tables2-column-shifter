@@ -1,6 +1,12 @@
 CHANGELOG
 ===========
 
+v. 0.4.0
+---------
+    * Support for django-tables2 v1.19.0 and all previous versions
+    * Remove support for django-tables2 < v1.5.0
+
+
 v. 0.3.1
 ---------
     * Support for django-tables2 v1.5 and v1.6
