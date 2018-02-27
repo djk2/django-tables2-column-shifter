@@ -16,7 +16,10 @@ class ColumnShiftTable(tables.Table):
         """Override init for set shifter template"""
         super(ColumnShiftTable, self).__init__(*args, **kwargs)
         # Override default template
-        self.template = self.shifter_template
+        if hasattr(self, "template_name"):
+            self.template_name = self.shifter_template
+        else:
+            self.template = self.shifter_template
 
     def get_column_default_show(self):
         """
