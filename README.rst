@@ -39,6 +39,7 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
     * EN - (English)
     * PL - (Polish)
+    * EL - (Greek / Hellenic Republic) 
 
 
 
