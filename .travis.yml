@@ -4,23 +4,37 @@ language: python
 matrix:
     include:
         - python: '3.6'
+          env: TOXENV=py36-djmaster-dtmaster-tests
+        - python: '3.6'
           env: TOXENV=py36-dj2.0-dt1.17-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.0-dt1.18-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.0-dt1.19-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.0-dt1.21-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.0-dtmaster-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.11-dt1.17-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.11-dt1.18-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.11-dt1.19-tests
+        - python: '2.7'
+          env: TOXENV=py27-dj1.11-dt1.21-tests
+        - python: '2.7'
+          env: TOXENV=py27-dj1.11-dtmaster-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.11-dt1.17-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.11-dt1.18-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.11-dt1.19-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj1.11-dt1.21-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj1.11-dtmaster-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.9-dt1.5-tests
         - python: '2.7'
