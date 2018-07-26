@@ -1,6 +1,19 @@
 CHANGELOG
 ===========
 
+v. 0.5.0
+---------
+
+    * Support for django-tables2 v2.0
+    * Support for bootstrap2
+    * Update README
+
+v. 0.4.1
+---------
+
+    * Add greek translation
+    * Fix small css bug
+
 v. 0.4.0
 ---------
     * Support for django-tables2 v1.19.0 and all previous versions

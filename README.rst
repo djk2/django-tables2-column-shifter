@@ -26,19 +26,20 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
     * Python :2.7, 3.6
     * Django : 1.9, 1.10, 1.11, 2.0
-    * django-tables2 : 1.5, 1.6, ..., 1.19, master
+    * django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, master
 
 - Require:
 
     * Django >= 1.9
     * django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
-    * **bootstrap3** or **bootstrap4**
+    * **bootstrap2** or **bootstrap3** or **bootstrap4**
     * **JQuery**
 
 - Supported locale:
 
     * EN - (English)
     * PL - (Polish)
+    * EL - (Greek / Hellenic Republic)
 
 
 
@@ -85,7 +86,7 @@ How Install:
     ]
 
 3. Add path to js script: ``django_tables2_column_shifter.min.js`` in your base django template.
-   Script must be add after jquery.js and before </body> tag.
+   Script must be add after jquery.js aand bootstrap.js and before </body> tag.
 
 
   base.html::
@@ -96,6 +97,8 @@ How Install:
         ...
         ...
         <script src="{% static "jquery.min.js" %}"></script> {# require #}
+        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
         <script
             type="text/javascript"
             src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
@@ -143,6 +146,12 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
     {% render_table table %}
 
 
+Bootstrap2 (support for old projects):
+--------------------------------------
+If you use Bootstrap v2 in your project then your Table class should inherit from `ColumnShiftTableBootstrap2`
+imported from `django_tables2_column_shifter.tables`.
+
+
 Warnings:
 ----------
 
@@ -155,7 +164,7 @@ Warnings:
 
 - **Warning** : - If you use a different template than ``django_tables2_column_shifter/table.html``
   to render your table, probably django-tables2-column-shifter will not be work.
-  Your custom template should inherit from ``django_tables2_column_shifter/bootstrap3.html``
+  Your custom template should inherit from ``django_tables2_column_shifter/table.html``
 
 
 Customizing:
