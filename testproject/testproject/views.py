@@ -52,3 +52,8 @@ class Bootstrap3(Base, TemplateView):
 class Bootstrap4(Base, TemplateView):
     container_css = "col-xs-10 col-xs-offset-1"
     template_name = "testproject/test_bootstrap4.html"
+
+
+class Bootstrap4_1_3(Base, TemplateView):
+    container_css = "col-xs-10 col-xs-offset-1"
+    template_name = "testproject/test_bootstrap4.1.3.html"
