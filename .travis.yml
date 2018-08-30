@@ -1,6 +1,5 @@
 sudo: false
 language: python
-
 matrix:
     include:
         - python: '3.6'
@@ -15,6 +14,16 @@ matrix:
           env: TOXENV=py36-dj2.0-dt1.21-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.0-dtmaster-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dt1.17-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dt1.18-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dt1.19-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dt1.21-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dtmaster-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.11-dt1.17-tests
         - python: '2.7'
@@ -187,10 +196,16 @@ matrix:
           env: TOXENV=py36-isort
 
     allow_failures:
-        - env: TOXENV=py36-djmaster-dtmaster-tests
-        - env: TOXENV=py36-dj2.0-dtmaster-tests
-        - env: TOXENV=py27-dj1.11-dtmaster-tests
-        - env: TOXENV=py36-dj1.11-dtmaster-tests
+        - python: '3.6'
+          env: TOXENV=py36-djmaster-dtmaster-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.0-dtmaster-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj2.1-dtmaster-tests
+        - python: '2.7'
+          env: TOXENV=py27-dj1.11-dtmaster-tests
+        - python: '3.6'
+          env: TOXENV=py36-dj1.11-dtmaster-tests
 
 install:
     - pip install tox>=2.5.0

@@ -1,6 +1,12 @@
 CHANGELOG
 ===========
 
+v. 0.5.1
+
+    * Support Django 2.1
+    * Support for bootstrap4.1.3 + example in testproject
+    * Add API for retrieving non-visible columns by @spapas
+
 v. 0.5.0
 ---------
 

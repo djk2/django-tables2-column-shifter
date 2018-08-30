@@ -24,15 +24,15 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Tested by tox with:
 
-    * Python :2.7, 3.6
-    * Django : 1.9, 1.10, 1.11, 2.0
+    * Python :2.7, 3.6, 3.7
+    * Django : 1.9, 1.10, 1.11, 2.0, 2.1
     * django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, master
 
-- Require:
+- Supported:
 
     * Django >= 1.9
     * django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
-    * **bootstrap2** or **bootstrap3** or **bootstrap4**
+    * **bootstrap2** / **bootstrap3** / **bootstrap4** / **bootstrap4.1.3**
     * **JQuery**
 
 - Supported locale:
