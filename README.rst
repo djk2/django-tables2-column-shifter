@@ -37,10 +37,10 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Supported locale:
 
-    * EN - (English)
-    * PL - (Polish)
-    * EL - (Greek / Hellenic Republic)
-
+    * EN        - (English)
+    * PL        - (Polish)
+    * EL        - (Greek / Hellenic Republic)
+    * PT-BR     - (Portuguese - Brazilian)
 
 
 More information about django-tables in here: https://django-tables2.readthedocs.io/
