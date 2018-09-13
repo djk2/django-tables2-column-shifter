@@ -37,8 +37,9 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Supported locale:
 
-    * EN - (english)
-    * PL - (polish)
+    * en        - (English)
+    * pl        - (Polish)
+    * pt_BR     - (Portuguese - Brazilian)
 
 
 
