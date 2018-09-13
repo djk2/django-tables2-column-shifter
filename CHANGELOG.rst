@@ -1,7 +1,13 @@
 CHANGELOG
 ===========
 
+v. 0.5.2
+--------
+    
+    * Add locale Brazilian Portuguese 
+
 v. 0.5.1
+--------
 
     * Support Django 2.1
     * Support for bootstrap4.1.3 + example in testproject
