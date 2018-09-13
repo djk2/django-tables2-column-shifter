@@ -10,13 +10,19 @@ class ColumnShiftTable(tables.Table):
     column_default_show = None
 
     # Shifter template for tabel inherit from django_table2/bootstrap.html
-    shifter_template = "django_tables2_column_shifter/bootstrap3.html"
+    shifter_template = "django_tables2_column_shifter/table.html"
+
+    # Css class for dropdown button above table
+    dropdown_button_css = "btn btn-default btn-xs"
 
     def __init__(self, *args, **kwargs):
         """Override init for set shifter template"""
         super(ColumnShiftTable, self).__init__(*args, **kwargs)
         # Override default template
-        self.template = self.shifter_template
+        if hasattr(self, "template_name"):
+            self.template_name = self.shifter_template
+        else:
+            self.template = self.shifter_template
 
     def get_column_default_show(self):
         """
@@ -38,3 +44,25 @@ class ColumnShiftTable(tables.Table):
         class_name = self.__class__.__name__
         prefix = self.prefix
         return "{pref}{cls}".format(pref=prefix, cls=class_name)
+
+    @property
+    def get_dropdown_button_css(self):
+        """Return css class for dropdown button above table."""
+        return self.dropdown_button_css
+
+    def get_column_class_names(self, classes_set, bound_column):
+        """
+        Ovveriden method to save back compability.
+        Add column names as css class to the attribute of table cells.
+        This functionality was changed in django table2 >= 2.0.
+        """
+        cset = super(ColumnShiftTable, self).get_column_class_names(classes_set, bound_column)
+        cset.add(bound_column.name)
+        return cset
+
+
+class ColumnShiftTableBootstrap2(ColumnShiftTable):
+    """
+    Table class compatible with bootstrap 2
+    """
+    dropdown_button_css = "btn btn-small"

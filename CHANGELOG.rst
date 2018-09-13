@@ -1,6 +1,31 @@
 CHANGELOG
 ===========
 
+v. 0.5.1
+
+    * Support Django 2.1
+    * Support for bootstrap4.1.3 + example in testproject
+    * Add API for retrieving non-visible columns by @spapas
+
+v. 0.5.0
+---------
+
+    * Support for django-tables2 v2.0
+    * Support for bootstrap2
+    * Update README
+
+v. 0.4.1
+---------
+
+    * Add greek translation
+    * Fix small css bug
+
+v. 0.4.0
+---------
+    * Support for django-tables2 v1.19.0 and all previous versions
+    * Remove support for django-tables2 < v1.5.0
+
+
 v. 0.3.1
 ---------
     * Support for django-tables2 v1.5 and v1.6
