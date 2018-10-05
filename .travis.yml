@@ -5,209 +5,64 @@ matrix:
         - python: '3.6'
           env: TOXENV=py36-djmaster-dtmaster-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.0-dt1.17-tests
+          env: TOXENV=py36-djmaster-dt1.21-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.0-dt1.18-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj2.0-dt1.19-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj2.0-dt1.21-tests
+          env: TOXENV=py36-djmaster-dt2.0-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.0-dtmaster-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.1-dt1.17-tests
+          env: TOXENV=py36-dj2.1-dtmaster-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.1-dt1.18-tests
+          env: TOXENV=py36-dj2.0-dt1.21-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.1-dt1.19-tests
+          env: TOXENV=py36-dj2.0-dt2.0-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.1-dt1.21-tests
         - python: '3.6'
-          env: TOXENV=py36-dj2.1-dtmaster-tests
+          env: TOXENV=py36-dj2.1-dt2.0-tests
         - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.17-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.18-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.19-tests
+          env: TOXENV=py27-dj1.11-dt1.7-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.11-dt1.21-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dtmaster-tests
         - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.17-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.18-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.19-tests
+          env: TOXENV=py36-dj1.11-dt1.7-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.11-dt1.21-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dtmaster-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.9-dt1.5-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.9-dt1.6-tests
         - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.7-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.8-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.9-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.10-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.11-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.12-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.13-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.14-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.15-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.9-dt1.16-tests
-        - python: '2.7'
           env: TOXENV=py27-dj1.10-dt1.5-tests
         - python: '2.7'
           env: TOXENV=py27-dj1.10-dt1.6-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.7-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.8-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.9-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.10-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.11-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.12-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.13-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.14-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.15-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.10-dt1.16-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.5-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.6-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.7-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.8-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.9-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.10-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.11-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.12-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.13-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.14-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.15-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dt1.16-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.9-dt1.5-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.9-dt1.6-tests
         - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.7-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.8-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.9-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.10-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.11-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.12-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.13-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.14-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.15-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.9-dt1.16-tests
-        - python: '3.6'
           env: TOXENV=py36-dj1.10-dt1.5-tests
         - python: '3.6'
           env: TOXENV=py36-dj1.10-dt1.6-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.7-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.8-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.9-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.10-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.11-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.12-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.13-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.14-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.15-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.10-dt1.16-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.5-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.6-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.7-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.8-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.9-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.10-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.11-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.12-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.13-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.14-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.15-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dt1.16-tests
         - python: '2.7'
           env: TOXENV=py27-flake
         - python: '3.6'
           env: TOXENV=py36-flake
-        - python: '3.6'
-          env: TOXENV=py36-isort
 
     allow_failures:
         - python: '3.6'
           env: TOXENV=py36-djmaster-dtmaster-tests
         - python: '3.6'
+          env: TOXENV=py36-djmaster-dt1.21-tests
+        - python: '3.6'
+          env: TOXENV=py36-djmaster-dt2.0-tests
+        - python: '3.6'
           env: TOXENV=py36-dj2.0-dtmaster-tests
         - python: '3.6'
           env: TOXENV=py36-dj2.1-dtmaster-tests
-        - python: '2.7'
-          env: TOXENV=py27-dj1.11-dtmaster-tests
-        - python: '3.6'
-          env: TOXENV=py36-dj1.11-dtmaster-tests
+
 
 install:
-    - pip install tox>=2.5.0
+    - pip install tox>=3.1.2
 script:
     - tox

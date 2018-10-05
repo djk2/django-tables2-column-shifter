@@ -1,5 +1,5 @@
-Django>=2.1
-django-tables2>=1.21.0
+Django>=2.1.2
+django-tables2>=2.0.1
 tox>=3.1.2
 flake8
 twine

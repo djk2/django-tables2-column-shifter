@@ -24,8 +24,8 @@ Using JQuery, Bootstrap3 or Bootstrap4 and Django >=1.9.
 
 - Tested by tox with:
 
-    * Python :2.7, 3.6, 3.7
-    * Django : 1.9, 1.10, 1.11, 2.0, 2.1
+    * Python :2.7, 3.6
+    * Django : 1.9, 1.10, 1.11, 2.0, 2.1, master
     * django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, master
 
 - Supported:
@@ -144,7 +144,7 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
     {% extends "base.html" %}
     {% load django_tables2 %}
     {% render_table table %}
-    
+
 To retrieve the invisible columns you can use the ``$.django_tables2_column_shifter_hidden()`` API. You can either pass the 0-based index of the table in the page (i.e use ``$.django_tables2_column_shifter_hidden(1)`` to get the hidden columns for the 2nd table in the page) or just use it without parameters to retrieve the hidden columns for the first table. This API returns an array with the invisible column names.
 
 These columns can then be used when you want to export only the visible columns, ie  when the user clicks on the export button it would append an ``&excluded_columns=col1,col2`` to the export button's ``href`` which would then be used by the django-tables2 ``TableExporter``   (http://django-tables2.readthedocs.io/en/latest/pages/export.html#excluding-columns) to exclude these cols, i.e something like
