@@ -1,10 +1,23 @@
 CHANGELOG
 ===========
 
+v. 2.0.0
+--------
+
+    * Support for Django 3.1
+    * Tests with django-tables2 v2.3
+    * Add support for Bootstrap5
+    * Add special classes `ColumnShiftTableBootstrap3`,
+      `ColumnShiftTableBootstrap4` and `ColumnShiftTableBootstrap5`
+    * Change default inherit for django_tables2_column_shifter/templtes/table.html
+      from `django_tables2_column_shifter/bootstrap.html` to `django_tables2_column_shifter/bootstrap4.html`
+      so class `ColumnShiftTable` by default call bootstrap4 template from django-tables2.
+      **If you use different bootstrap version then 4 please use one of class: ColumnShiftTableBootstrap2/3/4/5 **
+
 v. 0.5.2
 --------
-    
-    * Add locale Brazilian Portuguese 
+
+    * Add locale Brazilian Portuguese
 
 v. 0.5.1
 --------

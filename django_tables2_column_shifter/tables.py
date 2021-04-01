@@ -66,3 +66,26 @@ class ColumnShiftTableBootstrap2(ColumnShiftTable):
     Table class compatible with bootstrap 2
     """
     dropdown_button_css = "btn btn-small"
+    shifter_template = "django_tables2_column_shifter/bootstrap2.html"
+
+
+class ColumnShiftTableBootstrap3(ColumnShiftTable):
+    """
+    Table class compatible with bootstrap 3
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap3.html"
+
+
+class ColumnShiftTableBootstrap4(ColumnShiftTable):
+    """
+    Table class compatible with bootstrap 4
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap4.html"
+
+
+class ColumnShiftTableBootstrap5(ColumnShiftTable):
+    """
+    Table class compatible with bootstrap 5
+    """
+    dropdown_button_css = "btn btn-light btn-sm"
+    shifter_template = "django_tables2_column_shifter/bootstrap5.html"
