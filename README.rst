@@ -17,7 +17,7 @@ django-tables2-column-shifter
     :alt: Requirements Status
 
 
-About the app:
+**About the app:**
 Simple extension for django-tables2 to dynamically show or hide columns using jQuery.
 Application uses web storage to store information whih columns are visible or not.
 Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
@@ -33,20 +33,20 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
   * bootstrap4 - ColumnShiftTableBootstrap4,
   * bootstrap5 - ColumnShiftTableBootstrap5,
 
-### Tested by tox with:
+**Tested by tox with:**
 
 * Python :2.7, 3.6, 3.7, 3.8
 * Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, master
 * django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, 2.1, 2.2, 2.3, master
 
-### Supported:
+**Supported:**
 
 * Django >= 1.9
 * django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
 * **bootstrap2** / **bootstrap3** / **bootstrap4** / **bootstrap4.1.3** / **bootstrap5 beta3**
 * **JQuery**
 
-### Supported locale:
+**Supported locale:**
 
 * EN        - (English)
 * PL        - (Polish)
@@ -171,7 +171,8 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
     {% load django_tables2 %}
     {% render_table table %}
 
-### JS API:
+JS API:
+-------
 To retrieve the invisible columns you can use the ``$.django_tables2_column_shifter_hidden()`` js API.
 You can either pass the 0-based index of the table in the page (i.e use ``$.django_tables2_column_shifter_hidden(1)``
 to get the hidden columns for the 2nd table in the page) or just use it without parameters to retrieve the hidden columns
@@ -196,12 +197,12 @@ Bootstrap3 (support for old projects):
 If you use Bootstrap v3 in your project then your Table class should inherit from `ColumnShiftTableBootstrap3`
 imported from `django_tables2_column_shifter.tables`.
 
-Bootstrap4 (support for old projects):
+Bootstrap4 :
 --------------------------------------
 If you use Bootstrap v4 in your project then your Table class should inherit from `ColumnShiftTableBootstrap4`
 imported from `django_tables2_column_shifter.tables`.
 
-Bootstrap3 (support for old projects):
+Bootstrap5:
 --------------------------------------
 If you use Bootstrap v5 in your project then your Table class should inherit from `ColumnShiftTableBootstrap5`
 imported from `django_tables2_column_shifter.tables`.
