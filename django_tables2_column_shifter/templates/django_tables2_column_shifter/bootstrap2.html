@@ -1,0 +1,93 @@
+{% extends "django_tables2/bootstrap.html" %}
+{% load trans from i18n %}
+{% load static %}
+
+{% block table %}
+
+    {% if table.shift_table_column %}
+
+        <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
+
+            <div class="btn-group">
+                <button type="button" class="{{ table.get_dropdown_button_css }} dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                >
+                    <img
+                        src="{% static "django_tables2_column_shifter/img/cols.png" %}"
+                        alt="Columns"
+                        style="
+                            width:20px;
+                            height:16px;
+                            margin-right:5px;
+                            opacity:0.7;"
+                    />
+                    {% trans "Visible columns" %}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="min-width:350px; padding:5px; cursor:pointer;">
+                    {% for column in table.columns %}
+                        {% if column.attrs.td.class in table.get_column_default_show %}
+                            <li class="btn-shift-column"
+                                data-td-class="{{ column.attrs.td.class }}"
+                                data-state="on"
+                                {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
+                                data-table-class-container="{{ table.uniq_table_class_name }}">
+                                <img
+                                    src="{% static "django_tables2_column_shifter/img/check.png" %}"
+                                    alt="loader"
+                                    style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
+                                    class="ico check"
+                                />
+                                <img
+                                    src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
+                                    alt="loader"
+                                    style="width:20px; height:20px; margin-right:5px; display: none; opacity:0.7;"
+                                    class="ico uncheck"
+                                />
+                                {{ column.header }}
+                            </li>
+                        {% else %}
+                            <li class="btn-shift-column"
+                                data-td-class="{{ column.attrs.td.class }}"
+                                data-state="off"
+                                {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
+                                data-table-class-container="{{ table.uniq_table_class_name }}">
+                                <img
+                                    src="{% static "django_tables2_column_shifter/img/check.png" %}"
+                                    alt="loader"
+                                    style="width:20px; height:20px; margin-right:5px; display:none; opacity:0.7;"
+                                    class="ico check"
+                                />
+                                <img
+                                    src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
+                                    alt="loader"
+                                    style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
+                                    class="ico uncheck"
+                                />
+                                {{ column.header }}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div> {# End  btn-group#}
+
+            {# Loader default is show #}
+            <div class="loader" style="text-align:center;" >
+                <img src="{% static "django_tables2_column_shifter/img/loader.gif" %}" style="margin:5px auto;" alt="loader"/>
+                {% trans "Table content is loading..."%}
+            </div> {# End loader #}
+
+            {# Wrapper degault is hide #}
+            <div class="table-wrapper" style="display:none;">
+                {# Load default table content   #}
+                {{ block.super }}
+            </div> {# End table-wrapper #}
+
+        </div> {# End column-shifter-container #}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+
+{% endblock table %}

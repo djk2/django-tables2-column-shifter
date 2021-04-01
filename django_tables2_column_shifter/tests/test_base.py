@@ -16,6 +16,35 @@ else:
 
 class DjangoTables2ColumnShifterTest(TestCase):
 
+    CASE = [
+        {
+            'bootstrap_version': 'bootstrap2',
+            'min_dt_version': (1, 0),
+            'max_dt_version': (2, 0),
+            'template_name': 'django_tables2_column_shifter/bootstrap2.html',
+        },
+        {
+            'bootstrap_version': 'bootstrap3',
+            'min_dt_version': (1, 0),
+            'max_dt_version': (2, 0),
+            'template_name': 'django_tables2_column_shifter/bootstrap3.html',
+        },
+        {
+            'bootstrap_version': 'bootstrap4',
+            'min_dt_version': (2, 0),
+            'max_dt_version': None,
+            'template_name': 'django_tables2_column_shifter/bootstrap4.html',
+        },
+        {
+            'bootstrap_version': 'bootstrap5',
+            'min_dt_version': (2, 0),
+            'max_dt_version': None,
+            'template_name': 'django_tables2_column_shifter/bootstrap5.html',
+        },
+    ]
+
+    dt_version = tuple(map(int, tables.__version__.split(".")[:2]))
+
     def setUp(self):
         # Add authors to database
         Author.objects.create(first_name='Bradley', last_name='Ayers', age=21)
@@ -26,78 +55,116 @@ class DjangoTables2ColumnShifterTest(TestCase):
         if not hasattr(self, 'client'):
             self.client = Client()
 
-    def test_status(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        assert response.status_code == 200
-
-    def test_bootstrap2_status(self):
-        response = self.client.get(reverse("bootstrap2"))
-        assert response.status_code == 200
+    def test_CASE_status(self):
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            assert response.status_code == 200
 
     def test_general_html_content(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, "Authors - table 1:")
-        self.assertContains(response, "Authors - table 2:")
-        self.assertContains(response, "Books - table")
-        self.assertContains(response, "Books - queryset")
-
-    def test_bootstrap2_general_html_content(self):
-        response = self.client.get(reverse("bootstrap2"))
-        self.assertContains(response, "Authors - table 1:")
-        self.assertContains(response, "Authors - table 2:")
-        self.assertContains(response, "Books - table")
-        self.assertContains(response, "Books - queryset")
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, "Authors - table 1:")
+            self.assertContains(response, "Authors - table 2:")
+            self.assertContains(response, "Books - table")
+            self.assertContains(response, "Books - queryset")
 
     def test_container_ids(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, 'id="AuthorTable"')
-        self.assertContains(response, 'id="authors2AuthorTable"')
-        self.assertContains(response, 'id="booksBookTable"')
-
-    def test_bootstrap2_container_ids(self):
-        response = self.client.get(reverse("bootstrap2"))
-        self.assertContains(response, "AuthorTableBootstrap2")
-        self.assertContains(response, "authors2AuthorTableBootstrap2")
-        self.assertContains(response, "booksBookTableBootstrap2")
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, 'id="AuthorTable"')
+            self.assertContains(response, 'id="authors2AuthorTable"')
+            self.assertContains(response, 'id="booksBookTable"')
 
     def test_tables_containers_count(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, "column-shifter-container", count=3)
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, "column-shifter-container", count=3)
 
     def test_buttons_count(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, "btn-shift-column", count=13)
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, "btn-shift-column", count=13)
 
     def test_btn_on_status_count(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, 'data-state="on"', count=11)
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, 'data-state="on"', count=11)
 
     def test_btn_off_status_count(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, 'data-state="off"', count=2)
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, 'data-state="off"', count=2)
 
     def test_is_pagination(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        self.assertContains(response, "?page=2")
-        self.assertContains(response, "authors2page")
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case['bootstrap_version']))
+            self.assertContains(response, "?page=2")
+            self.assertContains(response, "authors2page")
 
     def test_tables_template(self):
-        response = self.client.get(reverse("bootstrap_default"))
-        template_name = "django_tables2_column_shifter/table.html"
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
 
-        # In django_table2 v1.18 was renamed Table.Meta.template to template_name
-        version = tuple(map(int, tables.__version__.split(".")[:2]))
-        if version < (1, 18):
-            template_attr_name = 'template'
-        else:
-            template_attr_name = 'template_name'
+            response = self.client.get(reverse(case["bootstrap_version"]))
+            template_name = case['template_name']
 
-        assert getattr(response.context['author_table1'], template_attr_name) is not None
-        assert getattr(response.context['author_table1'], template_attr_name) == template_name
-        assert getattr(response.context['author_table2'], template_attr_name) is not None
-        assert getattr(response.context['author_table2'], template_attr_name) == template_name
-        assert getattr(response.context['book_table'], template_attr_name) is not None
-        assert getattr(response.context['book_table'], template_attr_name) == template_name
+            # In django_table2 v1.18 was renamed Table.Meta.template to template_name
+            version = tuple(map(int, tables.__version__.split(".")[:2]))
+            if version < (1, 18):
+                template_attr_name = 'template'
+            else:
+                template_attr_name = 'template_name'
+
+            assert getattr(response.context['author_table1'], template_attr_name) is not None
+            assert getattr(response.context['author_table1'], template_attr_name) == template_name
+            assert getattr(response.context['author_table2'], template_attr_name) is not None
+            assert getattr(response.context['author_table2'], template_attr_name) == template_name
+            assert getattr(response.context['book_table'], template_attr_name) is not None
+            assert getattr(response.context['book_table'], template_attr_name) == template_name
 
     def test_static_files(self):
         prefix = "django_tables2_column_shifter"

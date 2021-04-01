@@ -1,19 +1,27 @@
-from django_tables2_column_shifter.tables import ColumnShiftTable
+
 
 from .models import Author, Book
 
 
-class AuthorTable(ColumnShiftTable):
+def get_author_table_class(TableClass):
 
-    class Meta:
-        model = Author
-        attrs = {'class': 'table table-bordered table-striped table-condensed'}
+    class AuthorTable(TableClass):
+
+        class Meta:
+            model = Author
+            attrs = {'class': 'table table-bordered table-striped table-condensed'}
+
+    return AuthorTable
 
 
-class BookTable(ColumnShiftTable):
+def get_book_table_class(TableClass):
 
-    column_default_show = ['id', 'title', 'author']
+    class BookTable(TableClass):
 
-    class Meta:
-        model = Book
-        attrs = {'class': 'table table-bordered table-striped table-condensed'}
+        column_default_show = ['id', 'title', 'author']
+
+        class Meta:
+            model = Book
+            attrs = {'class': 'table table-bordered table-striped table-condensed'}
+
+    return BookTable
