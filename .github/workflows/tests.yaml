@@ -1,9 +1,8 @@
-name: Python package
+name: UnitTests
 
 on: [push, pull_request]
 
 jobs:
-
 
   tests:
 

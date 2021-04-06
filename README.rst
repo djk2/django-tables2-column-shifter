@@ -7,9 +7,9 @@ django-tables2-column-shifter
     :alt: Latest PyPI version
 
 
-.. image:: https://travis-ci.org/djk2/django-tables2-column-shifter.svg?branch=master
-    :target: https://travis-ci.org/djk2/django-tables2-column-shifter
-    :alt: Travis CI
+.. image:: https://github.com/djk2/django-tables2-column-shifter/actions/workflows/tests.yaml/badge.svg?branch=master
+    :target: https://github.com/djk2/django-tables2-column-shifter/actions/workflows/tests.yaml
+    :alt: GitHub Actions
 
 
 .. image:: https://requires.io/github/djk2/django-tables2-column-shifter/requirements.svg?branch=master
