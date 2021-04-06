@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.6, 3.8]
+        python-version: [3.6, 3.8]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,4 +23,6 @@ jobs:
     - name: Install tox
       run: python -m pip install --upgrade tox
     - name: Run tests
-      run: tox -e py36-isort
+      run: |
+        export PYV="py"`echo "${{ matrix.python-version }}" | tr -d '.'`
+        tox -e `tox -l | grep $PYV | tr "\n" ","`
