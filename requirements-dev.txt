@@ -1,4 +1,4 @@
-Django>=3.1
+Django>=3.2
 django-tables2>=2.3.4
 tox>=3.23.0
 flake8

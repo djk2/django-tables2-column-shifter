@@ -1,6 +1,11 @@
 CHANGELOG
 ===========
 
+v. 2.0.2
+--------
+
+    * Support for Django 3.2
+
 v. 2.0.1
 --------
 
