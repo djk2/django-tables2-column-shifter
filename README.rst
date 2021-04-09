@@ -36,7 +36,7 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 **Tested by tox with:**
 
 * Python :3.6, 3.8
-* Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, 3.2 master
+* Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, master
 * django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, 2.1, 2.2, 2.3, master
 
 **Supported:**
