@@ -25,13 +25,16 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 
 **Warning** : - Since version 2.0 my extension works by default with bootstrap4.
   I highly recommend to inherit explicite from tables class indicate on bootstrap version.
-  I.e if you use in your project bootstrap in version 5. Your `Tables` classes should inherit from
-  ` django_tables2_column_shifter.tables.ColumnShiftTableBootstrap5`.
+  I.e if you use in your project bootstrap in version 5.
+  Your `Tables` classes should inherit from:
+  `django_tables2_column_shifter.tables.ColumnShiftTableBootstrap5`.
+
   Now you should inherit from:
-  * bootstrap2 - ColumnShiftTableBootstrap2,
-  * bootstrap3 - ColumnShiftTableBootstrap3,
-  * bootstrap4 - ColumnShiftTableBootstrap4,
-  * bootstrap5 - ColumnShiftTableBootstrap5,
+
+  * for bootstrap2 - ColumnShiftTableBootstrap2,
+  * for bootstrap3 - ColumnShiftTableBootstrap3,
+  * for bootstrap4 - ColumnShiftTableBootstrap4,
+  * for bootstrap5 - ColumnShiftTableBootstrap5,
 
 **Tested by tox with:**
 
@@ -97,7 +100,11 @@ How to Install:
     ]
 
 3. Add path to js script: ``django_tables2_column_shifter.min.js`` in your base django template.
-   Script must be add after jquery.js aand bootstrap.js and before </body> tag.
+   Script must be add after jquery.js and bootstrap.js and before </body> tag.
+   Draw attention to fact that beginning from version 4 of bootstrap,
+   the `Popper.js` is required to proper work of some of JS bootstrap scripts.
+   More about dependencies here:
+   https://getbootstrap.com/docs/4.0/getting-started/javascript/#dependencies
 
 
   base.html::
@@ -108,6 +115,8 @@ How to Install:
         ...
         ...
         <script src="{% static "jquery.min.js" %}"></script> {# require #}
+        {# Popper is a dependency for bootstrap >= 4.0 #}
+        <script src="{% static "bootstrap/js/popper.min.js" %}"></script>
         <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 
         <script
@@ -121,7 +130,7 @@ Usage:
 ------
 To use app, you must inherit your table class from ``django_tables2_column_shifter.tables.ColumnShiftTable``
 
-  models.py - create normal model::
+  models.py - create ordinary model::
 
     from django.db import models
 
@@ -129,14 +138,15 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
         first_name = models.CharField("First name", max_length=50)
         last_name = models.CharField("Last name", max_length=50)
 
-  tables.py - change inherit to: ColumnShiftTableBootstrap2 or ColumnShiftTableBootstrap3,
-  ColumnShiftTableBootstrap4, ColumnShiftTableBootstrap5::
+  tables.py - change inherit to one of: ColumnShiftTableBootstrap2,
+  ColumnShiftTableBootstrap3, ColumnShiftTableBootstrap4, ColumnShiftTableBootstrap5
+  (depends on which bootstrap version of bootstrap you are using)::
 
     from django_tables2_column_shifter.tables import (
-        ColumnShiftTableBootstrap2, # If you user bootstrap2
-        ColumnShiftTableBootstrap3, # If you user bootstrap3
-        ColumnShiftTableBootstrap4, # If you user bootstrap3
-        ColumnShiftTableBootstrap5, # If you user bootstrap4
+        ColumnShiftTableBootstrap2, # If you use bootstrap2
+        ColumnShiftTableBootstrap3, # If you use bootstrap3
+        ColumnShiftTableBootstrap4, # If you use bootstrap4
+        ColumnShiftTableBootstrap5, # If you use bootstrap5
     )
     from app.models import MyModel
 
@@ -151,8 +161,6 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
     class MyModelTable(ColumnShiftTableBootstrap5):
         class Meta:
             model = MyModel
-
-
 
 
   views.py - In your view, nothing changes::
@@ -171,6 +179,8 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
     {% load django_tables2 %}
     {% render_table table %}
 
+
+
 JS API:
 -------
 To retrieve the invisible columns you can use the ``$.django_tables2_column_shifter_hidden()`` js API.
@@ -187,25 +197,27 @@ these cols, i.e something like
     exporter = TableExport('csv', table, exclude_columns=self.request.GET.get('excluded_columns').split(',))
 
 
+
 Bootstrap2 (support for old projects):
 --------------------------------------
-If you use Bootstrap v2 in your project then your Table class should inherit from `ColumnShiftTableBootstrap2`
+If you use Bootstrap v2 in your project then table class has to inherit from `ColumnShiftTableBootstrap2`
 imported from `django_tables2_column_shifter.tables`.
 
 Bootstrap3 (support for old projects):
 --------------------------------------
-If you use Bootstrap v3 in your project then your Table class should inherit from `ColumnShiftTableBootstrap3`
+If you use Bootstrap v3 in your project then table class has to inherit from `ColumnShiftTableBootstrap3`
 imported from `django_tables2_column_shifter.tables`.
 
 Bootstrap4 :
 --------------------------------------
-If you use Bootstrap v4 in your project then your Table class should inherit from `ColumnShiftTableBootstrap4`
+If you use Bootstrap v4 in your project then table class has to inherit from `ColumnShiftTableBootstrap4`
 imported from `django_tables2_column_shifter.tables`.
 
 Bootstrap5:
 --------------------------------------
-If you use Bootstrap v5 in your project then your Table class should inherit from `ColumnShiftTableBootstrap5`
+If you use Bootstrap v5 in your project then table class has to inherit from `ColumnShiftTableBootstrap5`
 imported from `django_tables2_column_shifter.tables`.
+
 
 
 Warnings:
