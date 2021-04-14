@@ -1,6 +1,11 @@
 CHANGELOG
 ===========
 
+v. 2.0.3
+--------
+
+    * Fix small gaps for documentation in README.rst file
+
 v. 2.0.2
 --------
 
