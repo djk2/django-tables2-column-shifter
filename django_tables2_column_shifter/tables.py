@@ -23,6 +23,8 @@ class ColumnShiftTable(tables.Table):
             self.template_name = self.shifter_template
         else:
             self.template = self.shifter_template
+        """By default all of the columns are hideable"""
+        self.hideable_columns = self.columns
 
     def get_column_default_show(self):
         """
@@ -34,6 +36,13 @@ class ColumnShiftTable(tables.Table):
             return self.sequence
         else:
             return self.column_default_show
+
+    def set_hideable_columns(self, hideable_columns):
+        """ Sets columns that are hideable """
+        self.hideable_columns = []
+        for c in self.columns.iterall():
+            if c.name in hideable_columns:
+                self.hideable_columns.append(c)
 
     @property
     def uniq_table_class_name(self):

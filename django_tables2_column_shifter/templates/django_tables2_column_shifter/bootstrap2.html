@@ -27,7 +27,7 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="min-width:350px; padding:5px; cursor:pointer;">
-                    {% for column in table.columns %}
+                    {% for column in table.hideable_columns %}
                         {% if column.attrs.td.class in table.get_column_default_show %}
                             <li class="btn-shift-column"
                                 data-td-class="{{ column.attrs.td.class }}"

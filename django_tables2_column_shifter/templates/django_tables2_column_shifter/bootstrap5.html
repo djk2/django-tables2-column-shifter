@@ -31,7 +31,7 @@
                     style="min-width:350px; padding:5px; cursor:pointer;"
                     aria-labelledby="btn_{{ table.uniq_table_class_name }}"
                 >
-                    {% for column in table.columns %}
+                    {% for column in table.hideable_columns %}
                         {% if column.attrs.td.class in table.get_column_default_show %}
                             <li class="btn-shift-column"
                                 data-td-class="{{ column.attrs.td.class }}"
