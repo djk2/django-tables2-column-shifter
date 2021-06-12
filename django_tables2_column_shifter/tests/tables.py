@@ -8,6 +8,10 @@ def get_author_table_class(TableClassVersion):
         class Meta:
             model = Author
 
+        def __init__(self, *args, **kwargs):
+            super(AuthorTable, self).__init__(*args, **kwargs)
+            self.set_hideable_columns(['first_name', 'last_name', 'age'])
+
     return AuthorTable
 
 

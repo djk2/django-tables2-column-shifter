@@ -66,7 +66,7 @@ $(document).ready(function(){
         set_column_shifter_storage(storage);
     };
 
-    // Load states for buttons from storage for single tabel
+    // Load states for buttons from storage for single table
     var load_states = function($table_class_container) {
         var storage = get_column_shifter_storage();
         // Table id

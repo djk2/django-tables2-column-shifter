@@ -99,13 +99,13 @@ How to Install:
         ...,
     ]
 
-3. Add path to js script: ``django_tables2_column_shifter.min.js`` in your base django template.
+3. Add path to js script: ``django_tables2_column_shifter.min.js`` and css:
+   ``django_tables2_column_shifter.min.css`` in your base django template.
    Script must be add after jquery.js and bootstrap.js and before </body> tag.
    Draw attention to fact that beginning from version 4 of bootstrap,
    the `Popper.js` is required to proper work of some of JS bootstrap scripts.
    More about dependencies here:
    https://getbootstrap.com/docs/4.0/getting-started/javascript/#dependencies
-
 
   base.html::
 
@@ -123,6 +123,11 @@ How to Install:
             type="text/javascript"
             src="{% static "django_tables2_column_shifter/js/django_tables2_column_shifter.min.js" %}">
         </script>
+        <link
+            rel="stylesheet"
+            text="text/css"
+            href="{% static "django_tables2_column_shifter/css/django_tables2_column_shifter.min.css" %}"
+        >
     </body>
 
 
@@ -264,6 +269,14 @@ Customizing:
             self.column_default_show = ['column1', 'column2']
             return super(MyModelTable, self).get_column_default_show()
 
+4. By default all columns are hideable. If you would like to disallow some columns to be
+   be hidable, specify hideable columns explicitly in the Table class constructor using
+   ``set_hideable_columns(self)`` like that::
+
+    class MyModelTable(ColumnShiftTableBootstrap5):
+        def __init__(self, *args, **kwargs):
+            super(MyModelTable, self).__init__(*args, **kwargs)
+            self.set_hideable_columns(['column1', 'column2'])
 
 Run demo:
 ---------

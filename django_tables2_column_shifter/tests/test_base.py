@@ -169,6 +169,7 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_static_files(self):
         prefix = "django_tables2_column_shifter"
         statics = [
+            'css/django_tables2_column_shifter.min.css',
             'js/django_tables2_column_shifter.min.js',
             'img/check.png',
             'img/uncheck.png',
@@ -181,3 +182,13 @@ class DjangoTables2ColumnShifterTest(TestCase):
             abs_path = finders.find(static_path)
             assert abs_path is not None
             assert path.exists(abs_path) is True
+
+    def test_hideable_columns(self):
+        for case in self.CASE:
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+            response = self.client.get(reverse(case["bootstrap_version"]))
+            self.assertContains(response, 'column-not-hideable', count=2)

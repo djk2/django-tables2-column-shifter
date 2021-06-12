@@ -40,9 +40,9 @@ class ColumnShiftTable(tables.Table):
     def set_hideable_columns(self, hideable_columns):
         """ Sets columns that are hideable """
         self.hideable_columns = []
-        for c in self.columns.iterall():
-            if c.name in hideable_columns:
-                self.hideable_columns.append(c)
+        for col in self.columns.iterall():
+            if col.name in hideable_columns:
+                self.hideable_columns.append(col)
 
     @property
     def uniq_table_class_name(self):

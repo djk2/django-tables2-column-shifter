@@ -5,7 +5,6 @@
 {% block table %}
 
     {% if table.shift_table_column %}
-
         <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
 
             <div class="btn-group">
@@ -31,9 +30,9 @@
                     style="min-width:350px; padding:5px; cursor:pointer;"
                     aria-labelledby="btn_{{ table.uniq_table_class_name }}"
                 >
-                    {% for column in table.hideable_columns %}
+                    {% for column in table.columns %}
                         {% if column.attrs.td.class in table.get_column_default_show %}
-                            <li class="btn-shift-column"
+                            <li class="btn-shift-column {% if not column in table.hideable_columns %}column-not-hideable{% endif %}"
                                 data-td-class="{{ column.attrs.td.class }}"
                                 data-state="on"
                                 {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
