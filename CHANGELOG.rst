@@ -1,5 +1,11 @@
 CHANGELOG
 ===========
+v. 2.1.0
+--------
+
+    * Adding column_shifter default css file
+	* Adding possibility to set selected columns to be hideable explicitly.
+
 
 v. 2.0.3
 --------
