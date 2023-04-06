@@ -183,6 +183,11 @@ To use app, you must inherit your table class from ``django_tables2_column_shift
 
 JS API:
 -------
+
+This library is initialized automatically on the page ready event. In case you are using a framework
+like htmx, unpoly or turbo that does not trigger the ready event, you can initialize it manually by calling
+``$.django_tables2_column_shifter_init()`` on your framework's initialize callback.
+
 To retrieve the invisible columns you can use the ``$.django_tables2_column_shifter_hidden()`` js API.
 You can either pass the 0-based index of the table in the page (i.e use ``$.django_tables2_column_shifter_hidden(1)``
 to get the hidden columns for the 2nd table in the page) or just use it without parameters to retrieve the hidden columns

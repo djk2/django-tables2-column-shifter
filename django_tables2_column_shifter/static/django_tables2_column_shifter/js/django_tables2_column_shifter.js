@@ -1,6 +1,8 @@
 // Author: Grzegorz Tężycki
 
-$(document).ready(function(){
+
+// API function for initializing column shifter tables
+$.django_tables2_column_shifter_init = function() {
 
     // In web storage is saved structure like that:
     // localStorage['django_tables2_column_shifter'] = {
@@ -185,19 +187,22 @@ $(document).ready(function(){
 
     // show or hide columns based on data from web storage
     shift_columns();
-    
-    // Add API method for retrieving non-visible cols for table
-    // Pass the 0-based index of the table or leave the parameter 
-    // empty to return the hidden cols for the 1st table found
-    $.django_tables2_column_shifter_hidden = function(idx) {
-        if(idx==undefined) {
-            idx = 0;
-        }
-        return $('.table-container').eq(idx).find('.btn-shift-column').filter(function(z) {
-            return $(this).data('state')=='off'
-        }).map(function(z) { 
-            return $(this).data('td-class')
-        }).toArray();
-    }
+}
 
-});
+
+// Add API method for retrieving non-visible cols for table
+// Pass the 0-based index of the table or leave the parameter
+// empty to return the hidden cols for the 1st table found
+$.django_tables2_column_shifter_hidden = function(idx) {
+	if(idx==undefined) {
+		idx = 0;
+	}
+	return $('.table-container').eq(idx).find('.btn-shift-column').filter(function(z) {
+		return $(this).data('state')=='off'
+	}).map(function(z) {
+		return $(this).data('td-class')
+	}).toArray();
+}
+
+// Initialize column shifter on page ready event
+$(document).ready($.django_tables2_column_shifter_init);
