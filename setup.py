@@ -22,7 +22,7 @@ setup(
     tests_require=['Django', 'django-tables2'],
     include_package_data=True,
     zip_safe=False,
-    install_requires=['Django>=1.11', 'django-tables2>=2.0.0'],
+    install_requires=['Django>=3.2', 'django-tables2>=2.4.0'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -31,6 +31,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Utilities',
     ],
     keywords='django_tables2 django columns',

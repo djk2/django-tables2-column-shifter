@@ -38,14 +38,14 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.11.
 
 **Tested by tox with:**
 
-* Python :3.8
-* Django : 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, 4.0, 4.1, 4.2 master
-* django-tables2 : 2.0, 2.1, 2.2, 2.3, 2.4, 2.5 master
+* Python : 3.8, 3.10
+* Django : 3.2, 4.0, 4.1, 4.2, master
+* django-tables2 : 2.4, 2.5 master
 
 **Supported:**
 
-* Django >= 1.11
-* django-tables2 >= 2.0 (earlier version may work but wasn't tested)
+* Django >= 3.2
+* django-tables2 >= 2.4 (earlier version may work but aren't tested)
 * **bootstrap2** / **bootstrap3** / **bootstrap4** / **bootstrap4.1.3** / **bootstrap5 beta3**
 * **JQuery**
 

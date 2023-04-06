@@ -4,10 +4,9 @@ CHANGELOG
 v. 2.1.0
 --------
 
-    * Drop support for django-tables2 < 2.0
-    * Drop support for Django < 1.11
-    * Drop support for Python < 3.8
-    * Add support for Django 4.0,4.1,4.2
+    * Drop support for unsupported Python/Django/django-tables2
+    * Add support for new versions of Django
+    * Add support for Python 3.10 (@spapas)
 
 v. 2.0.2
 --------
