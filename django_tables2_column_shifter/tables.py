@@ -9,6 +9,9 @@ class ColumnShiftTable(tables.Table):
     # Which columns are visible by default
     column_default_show = None
 
+    # List of columns to exclude from choice
+    column_excluded = None
+
     # Shifter template for tabel inherit from django_table2/bootstrap.html
     shifter_template = "django_tables2_column_shifter/table.html"
 
@@ -30,10 +33,13 @@ class ColumnShiftTable(tables.Table):
         If self.column_default_show is None then
         # default visible columns will be return from sequence
         """
-        if self.column_default_show is None:
-            return self.sequence
-        else:
-            return self.column_default_show
+        return self.column_default_show or self.sequence
+
+    def get_column_excluded(self):
+        """
+        Excluded columns are not shown on list to choice
+        """
+        return self.column_excluded or []
 
     @property
     def uniq_table_class_name(self):

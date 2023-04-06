@@ -4,9 +4,16 @@ from os import path
 import django
 import django_tables2 as tables
 from django.contrib.staticfiles import finders
-from django.test import Client, TestCase
+from django.test import Client, TestCase, RequestFactory
+from django.template import Template, Context
 
 from django_tables2_column_shifter.tests.models import Author
+from django_tables2_column_shifter.tables import (
+    ColumnShiftTableBootstrap2,
+    ColumnShiftTableBootstrap3,
+    ColumnShiftTableBootstrap4,
+    ColumnShiftTableBootstrap5,
+)
 
 if tuple(map(int, django.__version__.split(".")[:2])) >= (1, 10):
     from django.urls import reverse
@@ -22,24 +29,28 @@ class DjangoTables2ColumnShifterTest(TestCase):
             'min_dt_version': (1, 0),
             'max_dt_version': (2, 0),
             'template_name': 'django_tables2_column_shifter/bootstrap2.html',
+            'table_clsss': ColumnShiftTableBootstrap2,
         },
         {
             'bootstrap_version': 'bootstrap3',
             'min_dt_version': (1, 0),
             'max_dt_version': (2, 0),
             'template_name': 'django_tables2_column_shifter/bootstrap3.html',
+            'table_clsss': ColumnShiftTableBootstrap3,
         },
         {
             'bootstrap_version': 'bootstrap4',
             'min_dt_version': (2, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap4.html',
+            'table_clsss': ColumnShiftTableBootstrap4,
         },
         {
             'bootstrap_version': 'bootstrap5',
             'min_dt_version': (2, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap5.html',
+            'table_clsss': ColumnShiftTableBootstrap5,
         },
     ]
 
@@ -181,3 +192,36 @@ class DjangoTables2ColumnShifterTest(TestCase):
             abs_path = finders.find(static_path)
             assert abs_path is not None
             assert path.exists(abs_path) is True
+
+    def test_column_excluded(self):
+        """
+        Check that excluded columns not render in tempalte
+        """
+
+        for case in self.CASE:
+
+            if (
+                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
+                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+            ):
+                continue
+
+            class Tab(case['table_clsss']):
+                column_excluded = ["first_name", "last_name"]
+
+                class Meta:
+                    model = Author
+
+            table = Tab(Author.objects.all())
+            request = RequestFactory().get('/fake/url')
+            template = Template("""
+                {% load django_tables2 %}
+                {% render_table table %}
+            """)
+            ctx = Context({"table": table, "request": request})
+            render = template.render(ctx)
+
+            self.assertTrue('data-td-class="id"' in render)
+            self.assertTrue('data-td-class="age"' in render)
+            self.assertFalse('data-td-class="first_name"' in render)
+            self.assertFalse('data-td-class="last_name"' in render)

@@ -26,7 +26,7 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 **Warning** : - Since version 2.0 my extension works by default with bootstrap4.
   I highly recommend to inherit explicite from tables class indicate on bootstrap version.
   I.e if you use in your project bootstrap in version 5.
-  Your `Tables` classes should inherit from:
+  Your `Table` classes should inherit from:
   `django_tables2_column_shifter.tables.ColumnShiftTableBootstrap5`.
 
   Now you should inherit from:
@@ -38,14 +38,14 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 
 **Tested by tox with:**
 
-* Python :3.6, 3.8
-* Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, master
-* django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, 2.1, 2.2, 2.3, master
+* Python :3.6, 3.8, 3.10
+* Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, 4.0, 4.2, master
+* django-tables2 : 1.15, ..., 1.21, 2.0, 2.1, 2.2, 2.3, 2.5, master
 
 **Supported:**
 
 * Django >= 1.9
-* django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
+* django-tables2 >= 1.15 (earlier version probably will work but wasn't tested)
 * **bootstrap2** / **bootstrap3** / **bootstrap4** / **bootstrap4.1.3** / **bootstrap5 beta3**
 * **JQuery**
 
@@ -268,6 +268,19 @@ Customizing:
         def get_column_default_show(self):
             self.column_default_show = ['column1', 'column2']
             return super(MyModelTable, self).get_column_default_show()
+
+4. By default, all columns from sequence are visible, if you want exclude some colmumns and
+   block ability to manipulate then, use: ``column_excluded``
+
+    class MyModelTable(ColumnShiftTableBootstrap5):
+        column_excluded = ['ex_column1', 'ex_column2']
+
+    or
+
+    class MyModelTable(ColumnShiftTableBootstrap5):
+        def get_column_excluded(self):
+            self.column_excluded = ['ex_column1', 'ex_column2']
+            return super(MyModelTable, self).get_column_excluded()
 
 
 Run demo:

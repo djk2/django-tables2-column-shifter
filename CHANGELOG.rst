@@ -1,11 +1,20 @@
 CHANGELOG
 ===========
 
-v. 2.0.4
+v. 2.1.1
 --------
 
     * Add the ``$.django_tables2_column_shifter_init`` api to initialize the column shifter
       for tables that are added to the DOM after the page has loaded (@spapas)
+
+v. 2.1.0
+--------
+
+    * Add possibility to exclude columns from shifting via `column_excluded`
+    * Support for Python 3.10
+    * Support for Django 4.0
+    * Support for Django 4.2
+    * Support django-tables2 v2.5.3
 
 v. 2.0.3
 --------
