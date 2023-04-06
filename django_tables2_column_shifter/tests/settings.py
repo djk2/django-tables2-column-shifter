@@ -42,3 +42,4 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 MIDDLEWARE = []
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
