@@ -6,8 +6,6 @@ dj_version = tuple(map(int, django.__version__.split(".")[:2]))
 
 if dj_version >= (3, 1):
     from django.urls import re_path as url
-elif dj_version >= (2, 2):
-    from django.urls import url
 else:
     from django.conf.urls import url
 
