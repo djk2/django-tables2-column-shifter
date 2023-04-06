@@ -32,46 +32,48 @@
                     aria-labelledby="btn_{{ table.uniq_table_class_name }}"
                 >
                     {% for column in table.columns %}
-                        {% if column.attrs.td.class in table.get_column_default_show %}
-                            <li class="btn-shift-column"
-                                data-td-class="{{ column.attrs.td.class }}"
-                                data-state="on"
-                                {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
-                                data-table-class-container="{{ table.uniq_table_class_name }}">
-                                <img
-                                    src="{% static "django_tables2_column_shifter/img/check.png" %}"
-                                    alt="loader"
-                                    style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
-                                    class="ico check"
-                                />
-                                <img
-                                    src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
-                                    alt="loader"
-                                    style="width:20px; height:20px; margin-right:5px; display: none; opacity:0.7;"
-                                    class="ico uncheck"
-                                />
-                                {{ column.header }}
-                            </li>
-                        {% else %}
-                            <li class="btn-shift-column"
-                                data-td-class="{{ column.attrs.td.class }}"
-                                data-state="off"
-                                {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
-                                data-table-class-container="{{ table.uniq_table_class_name }}">
-                                <img
-                                    src="{% static "django_tables2_column_shifter/img/check.png" %}"
-                                    alt="loader"
-                                    style="width:20px; height:20px; margin-right:5px; display:none; opacity:0.7;"
-                                    class="ico check"
-                                />
-                                <img
-                                    src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
-                                    alt="loader"
-                                    style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
-                                    class="ico uncheck"
-                                />
-                                {{ column.header }}
-                            </li>
+                        {% if column.attrs.td.class not in table.get_column_excluded %}
+                            {% if column.attrs.td.class in table.get_column_default_show %}
+                                <li class="btn-shift-column"
+                                    data-td-class="{{ column.attrs.td.class }}"
+                                    data-state="on"
+                                    {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
+                                    data-table-class-container="{{ table.uniq_table_class_name }}">
+                                    <img
+                                        src="{% static "django_tables2_column_shifter/img/check.png" %}"
+                                        alt="loader"
+                                        style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
+                                        class="ico check"
+                                    />
+                                    <img
+                                        src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
+                                        alt="loader"
+                                        style="width:20px; height:20px; margin-right:5px; display: none; opacity:0.7;"
+                                        class="ico uncheck"
+                                    />
+                                    {{ column.header }}
+                                </li>
+                            {% else %}
+                                <li class="btn-shift-column"
+                                    data-td-class="{{ column.attrs.td.class }}"
+                                    data-state="off"
+                                    {% if not forloop.last %} style="border-bottom:1px solid #ccc;" {%endif %}
+                                    data-table-class-container="{{ table.uniq_table_class_name }}">
+                                    <img
+                                        src="{% static "django_tables2_column_shifter/img/check.png" %}"
+                                        alt="loader"
+                                        style="width:20px; height:20px; margin-right:5px; display:none; opacity:0.7;"
+                                        class="ico check"
+                                    />
+                                    <img
+                                        src="{% static "django_tables2_column_shifter/img/uncheck.png" %}"
+                                        alt="loader"
+                                        style="width:20px; height:20px; margin-right:5px; opacity:0.7;"
+                                        class="ico uncheck"
+                                    />
+                                    {{ column.header }}
+                                </li>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
