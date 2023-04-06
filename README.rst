@@ -20,7 +20,7 @@ django-tables2-column-shifter
 **About the app:**
 Simple extension for django-tables2 to dynamically show or hide columns using jQuery.
 Application uses web storage to store information whih columns are visible or not.
-Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
+Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.11.
 
 
 **Warning** : - Since version 2.0 my extension works by default with bootstrap4.
@@ -38,14 +38,14 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 
 **Tested by tox with:**
 
-* Python :3.6, 3.8
-* Django : 1.9, 1.10, 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, master
-* django-tables2 : 1.5, 1.6, ..., 1.21, 2.0, 2.1, 2.2, 2.3, master
+* Python :3.8
+* Django : 1.11, 2.0, 2.1, 3.0, 3.1, 3.2, 4.0, 4.1, 4.2 master
+* django-tables2 : 2.0, 2.1, 2.2, 2.3, 2.4, 2.5 master
 
 **Supported:**
 
-* Django >= 1.9
-* django-tables2 >= 1.5.0 (earlier version probably will be work but wasn't tested)
+* Django >= 1.11
+* django-tables2 >= 2.0 (earlier version may work but wasn't tested)
 * **bootstrap2** / **bootstrap3** / **bootstrap4** / **bootstrap4.1.3** / **bootstrap5 beta3**
 * **JQuery**
 
