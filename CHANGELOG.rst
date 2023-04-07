@@ -1,6 +1,12 @@
 CHANGELOG
 ===========
 
+v. 2.1.1
+--------
+
+    * Add the ``$.django_tables2_column_shifter_init`` api to initialize the column shifter
+      for tables that are added to the DOM after the page has loaded (@spapas)
+
 v. 2.1.0
 --------
 
