@@ -1,6 +1,8 @@
 {% extends "django_tables2/bootstrap5-responsive.html" %}
 
-{% block table %}
+{% block table-wrapper %}
+<div class="table-container table-responsive">
+    {% block table %}
     {% if table.shift_table_column %}
         <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
             {% include 'django_tables2_column_shifter/_partials/bootstrap5_table_block.html' %}
@@ -14,4 +16,9 @@
     {% else %}
         {{ block.super }}
     {% endif %}
-{% endblock table %}
+    {% endblock table %}
+    {% block pagination %}
+        {{ block.super }}
+    {% endblock pagination %}
+</div>
+{% endblock table-wrapper %}
