@@ -1,9 +1,6 @@
 {% load trans from i18n %}
 {% load static %}
 
-
-        <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
-
             <div class="btn-group">
                 <button type="button" class="{{ table.get_dropdown_button_css }} dropdown-toggle"
                         data-bs-toggle="dropdown"
@@ -80,11 +77,3 @@
                 <img src="{% static "django_tables2_column_shifter/img/loader.gif" %}" style="margin:5px auto;" alt="loader"/>
                 {% trans "Table content is loading..."%}
             </div> {# End loader #}
-
-            {# Wrapper degault is hide #}
-            <div class="table-wrapper" style="display:none;">
-                {# Load default table content   #}
-                {{ block.super }}
-            </div> {# End table-wrapper #}
-
-        </div> {# End column-shifter-container #}
