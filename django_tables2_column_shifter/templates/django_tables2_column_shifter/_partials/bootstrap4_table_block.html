@@ -1,7 +1,7 @@
 {% load trans from i18n %}
 {% load static %}
 
-    {% if table.shift_table_column %}
+
 
         <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
 
@@ -85,6 +85,3 @@
             </div> {# End table-wrapper #}
 
         </div> {# End column-shifter-container #}
-    {% else %}
-        {{ block.super }}
-    {% endif %}

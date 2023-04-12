@@ -1,5 +1,9 @@
 {% extends "django_tables2/bootstrap4-responsive.html" %}
 
 {% block table %}
-    {% include 'django_tables2_column_shifter/_partials/bootstrap4_table_block.html' %}
+    {% if table.shift_table_column %}
+        {% include 'django_tables2_column_shifter/_partials/bootstrap4_table_block.html' %}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
 {% endblock table %}
