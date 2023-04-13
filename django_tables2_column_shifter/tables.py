@@ -2,7 +2,6 @@ import django_tables2 as tables
 
 
 class ColumnShiftTable(tables.Table):
-
     # If button for shifting columns is visible
     shift_table_column = True
 
@@ -89,9 +88,23 @@ class ColumnShiftTableBootstrap4(ColumnShiftTable):
     shifter_template = "django_tables2_column_shifter/bootstrap4.html"
 
 
+class ColumnShiftTableBootstrap4Responsive(ColumnShiftTable):
+    """
+    Table class compatible with Bootstrap 4 and using "table-responsive" css class.
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap4-responsive.html"
+
+
 class ColumnShiftTableBootstrap5(ColumnShiftTable):
     """
     Table class compatible with bootstrap 5
     """
     dropdown_button_css = "btn btn-light btn-sm"
     shifter_template = "django_tables2_column_shifter/bootstrap5.html"
+
+
+class ColumnShiftTableBootstrap5Responsive(ColumnShiftTableBootstrap5):
+    """
+    Table class compatible with Bootstrap 5 and using "table-responsive" css class.
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap5-responsive.html"

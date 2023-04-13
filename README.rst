@@ -33,8 +33,8 @@ Using JQuery, Bootstrap3 or Bootstrap4 or Bootstrap5 and Django >=1.9.
 
   * for bootstrap2 - ColumnShiftTableBootstrap2,
   * for bootstrap3 - ColumnShiftTableBootstrap3,
-  * for bootstrap4 - ColumnShiftTableBootstrap4,
-  * for bootstrap5 - ColumnShiftTableBootstrap5,
+  * for bootstrap4 - ColumnShiftTableBootstrap4 or ColumnShiftTableBootstrap4Responsive,
+  * for bootstrap5 - ColumnShiftTableBootstrap5 or ColumnShiftTableBootstrap5Responsive.
 
 **Tested by tox with:**
 
@@ -218,11 +218,16 @@ Bootstrap4 :
 If you use Bootstrap v4 in your project then table class has to inherit from `ColumnShiftTableBootstrap4`
 imported from `django_tables2_column_shifter.tables`.
 
+Alternatively if you want to use `table-responsive` your table class has to inherit from
+`ColumnShiftTableBootstrap4Responsive` imported from `django_tables2_column_shifter.tables`.
+
 Bootstrap5:
 --------------------------------------
 If you use Bootstrap v5 in your project then table class has to inherit from `ColumnShiftTableBootstrap5`
 imported from `django_tables2_column_shifter.tables`.
 
+Alternatively if you want to use `table-responsive` your table class has to inherit from
+`ColumnShiftTableBootstrap5Responsive` imported from `django_tables2_column_shifter.tables`.
 
 
 Warnings:

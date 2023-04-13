@@ -12,7 +12,9 @@ from django_tables2_column_shifter.tables import (
     ColumnShiftTableBootstrap2,
     ColumnShiftTableBootstrap3,
     ColumnShiftTableBootstrap4,
+    ColumnShiftTableBootstrap4Responsive,
     ColumnShiftTableBootstrap5,
+    ColumnShiftTableBootstrap5Responsive
 )
 
 if tuple(map(int, django.__version__.split(".")[:2])) >= (1, 10):
@@ -46,11 +48,25 @@ class DjangoTables2ColumnShifterTest(TestCase):
             'table_clsss': ColumnShiftTableBootstrap4,
         },
         {
+            'bootstrap_version': 'bootstrap4responsive',
+            'min_dt_version': (2, 0),
+            'max_dt_version': None,
+            'template_name': 'django_tables2_column_shifter/bootstrap4-responsive.html',
+            'table_clsss': ColumnShiftTableBootstrap4Responsive,
+        },
+        {
             'bootstrap_version': 'bootstrap5',
             'min_dt_version': (2, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap5.html',
             'table_clsss': ColumnShiftTableBootstrap5,
+        },
+        {
+            'bootstrap_version': 'bootstrap5responsive',
+            'min_dt_version': (2, 0),
+            'max_dt_version': None,
+            'template_name': 'django_tables2_column_shifter/bootstrap5-responsive.html',
+            'table_clsss': ColumnShiftTableBootstrap5Responsive,
         },
     ]
 

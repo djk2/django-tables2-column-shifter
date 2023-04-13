@@ -1,0 +1,17 @@
+{% extends "django_tables2/bootstrap4-responsive.html" %}
+
+{% block table %}
+{% if table.shift_table_column %}
+    <div id="{{ table.uniq_table_class_name }}" class="column-shifter-container">
+        {% include 'django_tables2_column_shifter/_partials/bootstrap4_table_block.html' %}
+
+        {# Wrapper default is hide #}
+        <div class="table-wrapper" style="display:none;">
+            {# Load default table content   #}
+            {{ block.super }}
+        </div> {# End table-wrapper #}
+     </div> {# End column-shifter-container #}
+{% else %}
+    {{ block.super }}
+{% endif %}
+{% endblock table %}
