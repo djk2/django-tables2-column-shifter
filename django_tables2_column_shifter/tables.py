@@ -113,6 +113,13 @@ class ColumnShiftTableBootstrap5(ColumnShiftTable):
     dropdown_button_css = "btn btn-light btn-sm"
     shifter_template = "django_tables2_column_shifter/bootstrap5.html"
 
+    def __init__(self, *args, **kwargs):
+        if dt_version < (2, 5):
+            raise AssertionError(
+                "ColumnShiftTableBootstrap5 require django-tables2 >= 2.5 "
+                "your current version is {}".format(tables.__version__)
+            )
+        super(ColumnShiftTableBootstrap5, self).__init__(*args, **kwargs)
 
 class ColumnShiftTableBootstrap5Responsive(ColumnShiftTableBootstrap5):
     """
