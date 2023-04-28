@@ -105,7 +105,6 @@ class ColumnShiftTableBootstrap4Responsive(ColumnShiftTable):
         super(ColumnShiftTableBootstrap4Responsive, self).__init__(*args, **kwargs)
 
 
-
 class ColumnShiftTableBootstrap5(ColumnShiftTable):
     """
     Table class compatible with bootstrap 5
@@ -121,6 +120,7 @@ class ColumnShiftTableBootstrap5(ColumnShiftTable):
             )
         super(ColumnShiftTableBootstrap5, self).__init__(*args, **kwargs)
 
+
 class ColumnShiftTableBootstrap5Responsive(ColumnShiftTableBootstrap5):
     """
     Table class compatible with Bootstrap 5 and using "table-responsive" css class.
@@ -134,4 +134,3 @@ class ColumnShiftTableBootstrap5Responsive(ColumnShiftTableBootstrap5):
                 "your current version is {}".format(tables.__version__)
             )
         super(ColumnShiftTableBootstrap5Responsive, self).__init__(*args, **kwargs)
-

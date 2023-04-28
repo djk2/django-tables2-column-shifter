@@ -58,8 +58,12 @@ class Bootstrap4(BootstrapDefault):
 
 
 class Bootstrap4Responsive(BootstrapDefault):
-    author_table_class = get_author_table_class(ColumnShiftTableBootstrap4Responsive)
-    book_table_class = get_book_table_class(ColumnShiftTableBootstrap4Responsive)
+    author_table_class = get_author_table_class(
+        ColumnShiftTableBootstrap4Responsive,
+    )
+    book_table_class = get_book_table_class(
+        ColumnShiftTableBootstrap4Responsive,
+    )
 
 
 class Bootstrap5(BootstrapDefault):
@@ -68,5 +72,9 @@ class Bootstrap5(BootstrapDefault):
 
 
 class Bootstrap5Responsive(BootstrapDefault):
-    author_table_class = get_author_table_class(ColumnShiftTableBootstrap5Responsive)
-    book_table_class = get_book_table_class(ColumnShiftTableBootstrap5Responsive)
+    author_table_class = get_author_table_class(
+        ColumnShiftTableBootstrap5Responsive,
+    )
+    book_table_class = get_book_table_class(
+        ColumnShiftTableBootstrap5Responsive
+    )
