@@ -1,5 +1,7 @@
 import django_tables2 as tables
 
+dt_version = tuple(map(int, tables.__version__.split(".")[:3]))
+
 
 class ColumnShiftTable(tables.Table):
     # If button for shifting columns is visible
