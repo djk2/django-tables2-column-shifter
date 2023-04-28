@@ -1,6 +1,16 @@
 CHANGELOG
 ===========
 
+v. 2.2.0
+--------
+
+    * Add new classes:
+        * ``ColumnShiftTableBootstrap4Responsive`` - only for django-tables2 >= 2.5.0
+        * ``ColumnShiftTableBootstrap5Responsive`` - only for django-tables2 >= 2.5.3
+
+      Classes able to use responsive tables with Bootstrap v4 and v5
+      Author: @mpibpc-mroose
+
 v. 2.1.1
 --------
 
