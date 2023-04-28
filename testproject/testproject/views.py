@@ -5,7 +5,9 @@ from django_tables2_column_shifter.tables import (
     ColumnShiftTableBootstrap2,
     ColumnShiftTableBootstrap3,
     ColumnShiftTableBootstrap4,
+    ColumnShiftTableBootstrap4Responsive,
     ColumnShiftTableBootstrap5,
+    ColumnShiftTableBootstrap5Responsive,
 )
 
 from .models import Author, Book
@@ -17,7 +19,6 @@ class Index(TemplateView):
 
 
 class Base(object):
-
     container_css = "span10 offset1"
     template_name = "testproject/test_bootstrap2.html"
     table_class_version = ColumnShiftTableBootstrap2
@@ -68,6 +69,12 @@ class Bootstrap4(Base, TemplateView):
     table_class_version = ColumnShiftTableBootstrap4
 
 
+class Bootstrap4Responsive(Base, TemplateView):
+    container_css = "col-xs-10 col-xs-offset-1"
+    template_name = "testproject/test_bootstrap4.html"
+    table_class_version = ColumnShiftTableBootstrap4Responsive
+
+
 class Bootstrap4_1_3(Base, TemplateView):
     container_css = "col-xs-10 col-xs-offset-1"
     template_name = "testproject/test_bootstrap4.1.3.html"
@@ -78,3 +85,9 @@ class Bootstrap5(Base, TemplateView):
     container_css = "col-xs-10 col-xs-offset-1"
     template_name = "testproject/test_bootstrap5.html"
     table_class_version = ColumnShiftTableBootstrap5
+
+
+class Bootstrap5Responsive(Base, TemplateView):
+    container_css = "col-xs-10 col-xs-offset-1"
+    template_name = "testproject/test_bootstrap5.html"
+    table_class_version = ColumnShiftTableBootstrap5Responsive
