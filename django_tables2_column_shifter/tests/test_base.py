@@ -56,7 +56,7 @@ class DjangoTables2ColumnShifterTest(TestCase):
         },
         {
             'bootstrap_version': 'bootstrap5',
-            'min_dt_version': (2, 0),
+            'min_dt_version': (2, 5),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap5.html',
             'table_clsss': ColumnShiftTableBootstrap5,
