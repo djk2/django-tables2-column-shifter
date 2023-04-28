@@ -95,6 +95,15 @@ class ColumnShiftTableBootstrap4Responsive(ColumnShiftTable):
     Table class compatible with Bootstrap 4 and using "table-responsive" css class.
     """
     shifter_template = "django_tables2_column_shifter/bootstrap4-responsive.html"
+    
+    def __init__(self, *args, **kwargs):
+        if dt_version < (2, 5):
+            raise AssertionError(
+                "ColumnShiftTableBootstrap4Responsive require django-tables2 >= 2.5 "
+                "your current version is {}".format(tables.__version__)
+            )
+        super(ColumnShiftTableBootstrap4Responsive, self).__init__(*args, **kwargs)
+
 
 
 class ColumnShiftTableBootstrap5(ColumnShiftTable):
