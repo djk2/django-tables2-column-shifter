@@ -16,6 +16,7 @@ from django_tables2_column_shifter.tables import (
     ColumnShiftTableBootstrap5,
     ColumnShiftTableBootstrap5Responsive
 )
+from django_tables2_column_shifter.tables import dt_version
 
 if tuple(map(int, django.__version__.split(".")[:2])) >= (1, 10):
     from django.urls import reverse
@@ -24,53 +25,50 @@ else:
 
 
 class DjangoTables2ColumnShifterTest(TestCase):
-
     CASE = [
         {
             'bootstrap_version': 'bootstrap2',
-            'min_dt_version': (1, 0),
-            'max_dt_version': (2, 0),
+            'min_dt_version': (1, 0, 0),
+            'max_dt_version': (2, 0, 0),
             'template_name': 'django_tables2_column_shifter/bootstrap2.html',
             'table_clsss': ColumnShiftTableBootstrap2,
         },
         {
             'bootstrap_version': 'bootstrap3',
-            'min_dt_version': (1, 0),
-            'max_dt_version': (2, 0),
+            'min_dt_version': (1, 0, 0),
+            'max_dt_version': (2, 0, 0),
             'template_name': 'django_tables2_column_shifter/bootstrap3.html',
             'table_clsss': ColumnShiftTableBootstrap3,
         },
         {
             'bootstrap_version': 'bootstrap4',
-            'min_dt_version': (2, 0),
+            'min_dt_version': (2, 0, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap4.html',
             'table_clsss': ColumnShiftTableBootstrap4,
         },
         {
             'bootstrap_version': 'bootstrap4responsive',
-            'min_dt_version': (2, 5),
+            'min_dt_version': (2, 5, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap4-responsive.html',
             'table_clsss': ColumnShiftTableBootstrap4Responsive,
         },
         {
             'bootstrap_version': 'bootstrap5',
-            'min_dt_version': (2, 5),
+            'min_dt_version': (2, 5, 0),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap5.html',
             'table_clsss': ColumnShiftTableBootstrap5,
         },
         {
             'bootstrap_version': 'bootstrap5responsive',
-            'min_dt_version': (2, 5),
+            'min_dt_version': (2, 5, 3),
             'max_dt_version': None,
             'template_name': 'django_tables2_column_shifter/bootstrap5-responsive.html',
             'table_clsss': ColumnShiftTableBootstrap5Responsive,
         },
     ]
-
-    dt_version = tuple(map(int, tables.__version__.split(".")[:2]))
 
     def setUp(self):
         # Add authors to database
@@ -85,8 +83,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_CASE_status(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -95,8 +93,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_general_html_content(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -108,8 +106,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_container_ids(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -120,8 +118,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_tables_containers_count(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -130,8 +128,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_buttons_count(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -140,8 +138,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_btn_on_status_count(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -150,8 +148,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_btn_off_status_count(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -160,8 +158,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_is_pagination(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
             response = self.client.get(reverse(case['bootstrap_version']))
@@ -171,8 +169,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
     def test_tables_template(self):
         for case in self.CASE:
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
 
@@ -217,8 +215,8 @@ class DjangoTables2ColumnShifterTest(TestCase):
         for case in self.CASE:
 
             if (
-                (case['min_dt_version'] and case['min_dt_version'] > self.dt_version) or
-                (case['max_dt_version'] and case['max_dt_version'] < self.dt_version)
+                    (case['min_dt_version'] and case['min_dt_version'] > dt_version) or
+                    (case['max_dt_version'] and case['max_dt_version'] < dt_version)
             ):
                 continue
 
