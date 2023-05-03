@@ -5,7 +5,9 @@ from django_tables2_column_shifter.tables import (
     ColumnShiftTableBootstrap2,
     ColumnShiftTableBootstrap3,
     ColumnShiftTableBootstrap4,
+    ColumnShiftTableBootstrap4Responsive,
     ColumnShiftTableBootstrap5,
+    ColumnShiftTableBootstrap5Responsive,
 )
 
 from .models import Author, Book
@@ -15,7 +17,7 @@ from .tables import get_author_table_class, get_book_table_class
 class BootstrapDefault(TemplateView):
     template_name = "django_tables2_column_shifter_tests/index.html"
     author_table_class = None  # should be override
-    book_table_class = None    # should be override
+    book_table_class = None  # should be override
 
     def get_context_data(self, **kwargs):
         context = super(BootstrapDefault, self).get_context_data(**kwargs)
@@ -55,6 +57,24 @@ class Bootstrap4(BootstrapDefault):
     book_table_class = get_book_table_class(ColumnShiftTableBootstrap4)
 
 
+class Bootstrap4Responsive(BootstrapDefault):
+    author_table_class = get_author_table_class(
+        ColumnShiftTableBootstrap4Responsive,
+    )
+    book_table_class = get_book_table_class(
+        ColumnShiftTableBootstrap4Responsive,
+    )
+
+
 class Bootstrap5(BootstrapDefault):
     author_table_class = get_author_table_class(ColumnShiftTableBootstrap5)
     book_table_class = get_book_table_class(ColumnShiftTableBootstrap5)
+
+
+class Bootstrap5Responsive(BootstrapDefault):
+    author_table_class = get_author_table_class(
+        ColumnShiftTableBootstrap5Responsive,
+    )
+    book_table_class = get_book_table_class(
+        ColumnShiftTableBootstrap5Responsive
+    )

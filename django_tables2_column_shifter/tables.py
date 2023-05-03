@@ -1,8 +1,9 @@
 import django_tables2 as tables
 
+dt_version = tuple(map(int, tables.__version__.split(".")[:3]))
+
 
 class ColumnShiftTable(tables.Table):
-
     # If button for shifting columns is visible
     shift_table_column = True
 
@@ -89,9 +90,47 @@ class ColumnShiftTableBootstrap4(ColumnShiftTable):
     shifter_template = "django_tables2_column_shifter/bootstrap4.html"
 
 
+class ColumnShiftTableBootstrap4Responsive(ColumnShiftTable):
+    """
+    Table class compatible with Bootstrap 4 and using "table-responsive" css class.
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap4-responsive.html"
+
+    def __init__(self, *args, **kwargs):
+        if dt_version < (2, 5):
+            raise AssertionError(
+                "ColumnShiftTableBootstrap4Responsive require django-tables2 >= 2.5 "
+                "your current version is {}".format(tables.__version__)
+            )
+        super(ColumnShiftTableBootstrap4Responsive, self).__init__(*args, **kwargs)
+
+
 class ColumnShiftTableBootstrap5(ColumnShiftTable):
     """
     Table class compatible with bootstrap 5
     """
     dropdown_button_css = "btn btn-light btn-sm"
     shifter_template = "django_tables2_column_shifter/bootstrap5.html"
+
+    def __init__(self, *args, **kwargs):
+        if dt_version < (2, 5):
+            raise AssertionError(
+                "ColumnShiftTableBootstrap5 require django-tables2 >= 2.5 "
+                "your current version is {}".format(tables.__version__)
+            )
+        super(ColumnShiftTableBootstrap5, self).__init__(*args, **kwargs)
+
+
+class ColumnShiftTableBootstrap5Responsive(ColumnShiftTableBootstrap5):
+    """
+    Table class compatible with Bootstrap 5 and using "table-responsive" css class.
+    """
+    shifter_template = "django_tables2_column_shifter/bootstrap5-responsive.html"
+
+    def __init__(self, *args, **kwargs):
+        if dt_version < (2, 5, 3):
+            raise AssertionError(
+                "ColumnShiftTableBootstrap5Responsive require django-tables2 >= 2.5.3 "
+                "your current version is {}".format(tables.__version__)
+            )
+        super(ColumnShiftTableBootstrap5Responsive, self).__init__(*args, **kwargs)
