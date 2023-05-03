@@ -9,6 +9,7 @@ from django.template import Template, Context
 
 from django_tables2_column_shifter.tests.models import Author
 from django_tables2_column_shifter.tables import (
+    dt_version,
     ColumnShiftTableBootstrap2,
     ColumnShiftTableBootstrap3,
     ColumnShiftTableBootstrap4,
@@ -16,7 +17,6 @@ from django_tables2_column_shifter.tables import (
     ColumnShiftTableBootstrap5,
     ColumnShiftTableBootstrap5Responsive
 )
-from django_tables2_column_shifter.tables import dt_version
 
 if tuple(map(int, django.__version__.split(".")[:2])) >= (1, 10):
     from django.urls import reverse
